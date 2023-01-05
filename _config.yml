@@ -1,10 +1,7 @@
 theme: jekyll-theme-midnight
 title: "F1 Racing"
 description: "A comprehensive site on F1 Racing"
-<<<<<<< HEAD
 gitorg: 
 description: "March 5 to November 26 2023"
-=======
 gitorg: "https://github.com/dontran15/reunion"
->>>>>>> b0a797a57e65e345dc62f9c65da29ab33c4ebfc4
 google_analytics:
