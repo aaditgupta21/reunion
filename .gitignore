@@ -3,8 +3,6 @@ _site
 .bundle
 vendor
 .vscode
-
-### Jekyll ###
 _site
 .sass-cache
 .jekyll-cache
