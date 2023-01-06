@@ -122,7 +122,7 @@
             <form action="/calculator" method="GET" id="calcForm">
                 <table style="height:100%" id="calcu" class="container">
                     <tr>
-                        <td><input style="width: 90%" type="text" class="result" name="input" id="calcForm1" th:value="${output}"><input style="width: 10% ; height: 75px" type="button" value="c" onclick="clr()" /> </td>
+                        <td><input style="width: 90%" type="text" class="result" name="input" id="calcForm1" th:value="${output}"><input style="width: 10% ; height: 5px" type="button" value="c" onclick="clr()" /> </td>
                     </tr>
                     <tr class ="first-row">
                         <!-- create button and assign value to each button -->
@@ -152,6 +152,8 @@
                         <td style="padding: 1px"><input style="width: 100px; height:100px"  type="button" value="8" onclick="dis('8')" class= "box" name=""
                                     onkeydown="myFunction(event)"> </td>
                         <td style="padding: 1px"><input style="width: 100px; height:100px"  type="button" value="9" onclick="dis('9')" class= "box" name=""
+                                    onkeydown="myFunction(event)"> </td>
+                                    <td style="padding: 1px"><input style="width: 100px; height:100px"  type="button" value="-" onclick="dis('-')" class= "box" name=""
                                     onkeydown="myFunction(event)"> </td>
                     </tr>
                     <tr class = "conflict">
