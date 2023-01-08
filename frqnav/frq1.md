@@ -17,7 +17,7 @@
   <body>
     <h1 style="text-align: center; font-size: 30px">
       FRQ
-      <span style="color: #ff5e5e !important; font-weight: bold">#1</span>
+      <span style="font-weight: bold">#1</span>
     </h1>
  <div style="margin: 0 auto; text-align: center">
     <input id="year1" type="text" placeholder="Year 1" />
