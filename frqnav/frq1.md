@@ -38,21 +38,30 @@
 </div>
 
     <script type="text/javascript">
-      var myMap = new Map();
+      var dayMap = new Map();
+      dayMap.set(0, "Sunday");
+      dayMap.set(1, "Monday");
+      dayMap.set(2, "Tuesday");
+      dayMap.set(3, "Wednesday");
+      dayMap.set(4, "Thursday");
+      dayMap.set(5, "Friday");
+      dayMap.set(6, "Saturday");
+      var monthMap = new Map();
 
       // setting the values
-      myMap.set(0, "January");
-      myMap.set(1, "February");
-      myMap.set(2, "March");
-   myMap.set(3, "April");
-   myMap.set(4, "May");
-   myMap.set(5, "June");
-   myMap.set(6, "July");
-   myMap.set(7, "August");
-   myMap.set(8, "September");
-   myMap.set(9, "October");
-   myMap.set(10, "November");
-   myMap.set(11, "December");
+      monthMap.set(0, "January");
+      monthMap.set(1, "February");
+      monthMap.set(2, "March");
+   monthMap.set(3, "April");
+   monthMap.set(4, "May");
+   monthMap.set(5, "June");
+   monthMap.set(6, "July");
+   monthMap.set(7, "August");
+   monthMap.set(8, "September");
+   monthMap.set(9, "October");
+   monthMap.set(10, "November");
+   monthMap.set(11, "December");
+
       var dateObj = new Date();
       var month = dateObj.getUTCMonth() + 1; //months from 1-12
       var day = dateObj.getUTCDate();
@@ -74,7 +83,7 @@
           <td>${data.month}</td>
             <td>${data.day}</td>
             <td>${data.year}</td>
-            <td>${myMap.get(data.dayOfWeek)}</td>
+            <td>${dayMap.get(data.dayOfWeek)}</td>
         </tr>`;
         });
 
@@ -88,7 +97,7 @@
           var newel = document.createElement("td");
           var elementid = document.getElementsByTagName("td").length;
           newel.setAttribute("id", elementid);
-          newel.innerHTML += `${myMap.get(data.firstDayOfYear)}`;
+          newel.innerHTML += `${monthMap.get(data.firstDayOfYear)}`;
           parenttbl.appendChild(newel);
         });
 
