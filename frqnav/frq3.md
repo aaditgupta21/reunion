@@ -120,9 +120,9 @@
         <th:block layout:fragment="body" th:remove="tag">
             <h1>Calculator Design Using HTML Layout</h1>
             <form action="/calculator" method="GET" id="calcForm">
-                <table style="height:100%" id="calcu" class="container">
+                <table style="height:50%" id="calcu" class="container">
                     <tr>
-                        <td><input style="width: 90%" type="text" class="result" name="input" id="calcForm1" th:value="${output}"><input style="width: 10% ; height: 5px" type="button" value="c" onclick="clr()" /> </td>
+                        <td><input style="width: 90%" type="text" class="result" name="input" id="calcForm1" th:value="${output}"><input style="width: 10% ; height: 50px" type="button" value="c" onclick="clr()" /> </td>
                     </tr>
                     <tr class ="first-row">
                         <!-- create button and assign value to each button -->
