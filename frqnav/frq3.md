@@ -119,10 +119,10 @@
 </style>
         <th:block layout:fragment="body" th:remove="tag">
             <h1>Calculator Design Using HTML Layout</h1>
-            <form action="/calculator" method="GET" id="calcForm">
+            <form method="GET" id="calcForm">
                 <table style="height:50%" id="calcu" class="container">
                     <tr>
-                        <td><input style="width: 90%" type="text" class="result" name="input" id="calcForm1" th:value="${output}"><input style="width: 10% ; height: 50px" type="button" value="c" onclick="clr()" /> </td>
+                        <td><input style="width: 90%" type="text" class="result" name="input" id="calcFormInput" th:value="${output}"><input style="width: 10% ; height: 50px" type="button" value="c" onclick="clr()" /> </td>
                     </tr>
                     <tr class ="first-row">
                         <!-- create button and assign value to each button -->
@@ -195,25 +195,41 @@
                 }
           // Function that clear the display
                 function clr() {
-                    document.getElementById("calcForm1").value = ""
+                    document.getElementById("calcFormInput").value = ""
                 }
                 function submitform(event) {
                   event.preventDefault();
-                  var xhr = new XMLHttpRequest();
-                  xhr.open(
-                    "GET",
-                    "https://f1.aadit.dev/api/calculator/calculate"
-                  );
-                  xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-                  const data = new FormData(event.target);
-                  const expression = data.input;
-                  xhr.onreadystatechange = function() {
-                    if (this.readyState == 4 && this.status == 200) {
-                      console.log(this.responseText);
+                  // var xhr = new XMLHttpRequest();
+                  // xhr.open(
+                  //   "GET",
+                  //   "https://f1.aadit.dev/api/calculator/calculate"
+                  // );
+                  // xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+                  const inputElement = document.getElementById("calcFormInput")   ;                                 
+                  const expression = inputElement.value;                  
+                  const url = "https://f1.aadit.dev/api/calculator/calculate?expression="
+                  // const url = "http://localhost:8085/api/calculator/calculate?expression="
+                  fetch(url + encodeURIComponent(expression), {cors: "no-cors"})
+                  .then((response) => {
+                  // check for response errors
+                    if (response.status == 200) {
+                      return response.json().then((data) => {
+                        inputElement.value = data.result;
+                      });
+                    } else if (response.status == 400){
+                      return response.json().then((data) => {
+                        inputElement.value = data.error;
+                      }); 
+                    } else {
+                      return response.text().then(text => {
+                        console.log(text);
+                      });
                     }
-                  }
-                  // builds json
-                  xhr.send(expression);
+                  })
+                  .catch(e => {
+                    console.error(e);
+                    inputElement.value = "invalid expression";
+                  })
                 }
                 const form = document.getElementById("calcForm");
                 form.addEventListener("submit", submitform);
