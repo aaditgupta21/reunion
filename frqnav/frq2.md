@@ -11,6 +11,42 @@
       <span style="font-weight: bold">#2: Step Tracker</span>
     </h1>
 
+<form method="POST" id="signupForm">
+      <p>
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" class="inputText" />
+      </p>
+      <p>
+        <label for="password">Password:</label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+        />
+      </p>
+      <p>
+        <label for="graduatingYear">Graduating Year:</label>
+        <input
+          type="text"
+          name="graduatingYear"
+          id="graduatingYear"
+        />
+      </p>
+      <p>
+        <label for="email">Old Email:</label>
+        <input type="email" name="email" id="email" class="inputText" />
+      </p>
+      <p>
+        <label for="phoneNumber">Phone Number:</label>
+        <input
+          type="text"
+          name="phoneNumber"
+          id="phoneNumber"
+        />
+      </p>
+      <input value="Submit" type="submit" />
+    </form>
+
 <table>
   <thead>
   <tr>
