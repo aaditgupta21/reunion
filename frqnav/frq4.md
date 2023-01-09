@@ -11,7 +11,17 @@
       <span style="font-weight: bold">#4: Light Board</span>
     </h1>
 
-<button id="refresh-button" style="text-align: center">New</button>
+<style>
+  .button-container-div {
+      text-align: center;
+      height: 10vh;
+      width: 45vw;
+  }
+</style>
+
+<div class="button-container-div">
+  <button class="button" id="refresh-button">New</button>
+ </div>
 
 <div id="table-container"></div>
 
