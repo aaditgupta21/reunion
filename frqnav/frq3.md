@@ -172,8 +172,8 @@
             <script>
                 // Function that display value
                 function dis(val) {
-                    document.getElementById("calcForm1").value += val;
-                    varvar = document.getElementById("calcForm1").value;
+                    document.getElementById("calcFormInput").value += val;
+                    varvar = document.getElementById("calcFormInput").value;
                     console.log("varvar");
                 }
                 function myFunction(event) {
@@ -184,13 +184,13 @@
                         || event.key == '8' || event.key == '9' 
                         || event.key == '+' || event.key == '-'
                         || event.key == '*' || event.key == '/')
-                        document.getElementById("calcForm1").value += event.key;
+                        document.getElementById("calcFormInput").value += event.key;
                 }
           var cal = document.getElementById("calcu");
                 cal.onkeyup = function (event) {
                     if (event.keyCode === 13) {
                         console.log("Enter");
-                        let x = document.getElementById("calcForm1").value
+                        let x = document.getElementById("calcFormInput").value
                         console.log(x);
                     }
                 }
