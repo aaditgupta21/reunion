@@ -1,6 +1,6 @@
 <br>
 <br>
-<h1 style ="text-align: center">Our FRQs</h1>
+<h1 style="text-align: center">Our FRQs</h1>
 
 <div id="title">
 {% include nav2.html %}
@@ -10,6 +10,11 @@
       FRQ
       <span style="font-weight: bold">#4: Light Board</span>
     </h1>
+
+<div style="text-align: center">
+  <input id="numCols" type="text" placeholder="Number of Columns" />
+  <input id="numRows" type="text" placeholder="Number of Rows" />
+</div>
 
 <style>
   .button-container-div {
@@ -27,15 +32,19 @@
 
 <script>
 
-const API_URL = 'https://f1.aadit.dev/api/lightboard/?numRows=5&numCols=5&percentLightsOff=0.0';
-
 const tableContainer = document.getElementById("table-container");
 
 // Refresh button to refresh table
+
 const refreshButton = document.getElementById('refresh-button');
 
-// Refresh table 
+// Refresh table
 function refreshTable() {
+  let numCols = document.getElementById("numCols").value;
+  let numRows = document.getElementById("numRows").value;
+
+  const API_URL = `https://f1.aadit.dev/api/lightboard/?numRows=${numRows}&numCols=${numCols}&percentLightsOff=0.0`;
+
   fetch(API_URL)
     .then(response => response.json())
     .then(data => {
