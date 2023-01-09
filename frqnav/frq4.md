@@ -6,10 +6,7 @@
 {% include nav2.html %}
 </div>
 
-<h1 style="text-align: center; font-size: 30px">
-      FRQ
-      <span style="font-weight: bold">#4: Light Board</span>
-    </h1>
+# FRQ 4
 
 <div style="text-align: center">
   <input id="numCols" type="text" placeholder="Number of Columns" />
@@ -32,34 +29,27 @@
 
 <script>
 
+
 const tableContainer = document.getElementById("table-container");
 
-// Refresh button to refresh table
+// Generate a button
+const generateButton = document.getElementById('generate-button');
 
-const refreshButton = document.getElementById('refresh-button');
-
-// Refresh table
-function refreshTable() {
+// Create a brand new table every time clicked
+function newTable() {
   let numCols = document.getElementById("numCols").value;
   let numRows = document.getElementById("numRows").value;
 
   const API_URL = `https://f1.aadit.dev/api/lightboard/?numRows=${numRows}&numCols=${numCols}&percentLightsOff=0.0`;
-
   fetch(API_URL)
     .then(response => response.json())
     .then(data => {
-
-        // Remove the existing table
-        while (tableContainer.firstChild) {
-        tableContainer.removeChild(tableContainer.firstChild);
-        }
-
-        // Styling for table
+      // Clear the table container
         const table = document.createElement('table');
         table.style.width = '50%';
         table.style.margin = '0 auto';
 
-        // Set row value based on object's row value, create row if new
+
         let currentRow;
         for (const { row, column, light } of data) {
         if (row !== currentRow) {
@@ -68,11 +58,11 @@ function refreshTable() {
             table.appendChild(tr);
         }
 
-        // Create box element with background color based on rgb value
+        // Make a cell with RGB color input
         const td = document.createElement('td');
         td.style.backgroundColor = `rgb(${light.red}, ${light.green}, ${light.blue})`;
 
-        // Set text color based on brightness
+        // brightness level text color
         const brightness = (light.red * 299 + light.green * 587 + light.blue * 114) / 1000;
         if (brightness < 128) {
           td.style.color = 'white';
@@ -80,20 +70,17 @@ function refreshTable() {
           td.style.color = 'black';
         }
 
-        // Styling for the text inside the box, append to table
+        // Box text style
         td.innerText = `#${light.red.toString(16).padStart(2, '0')}${light.green.toString(16).padStart(2, '0')}${light.blue.toString(16).padStart(2, '0')}`;
-        td.style.textAlign = 'center';
-        td.style.verticalAlign = 'middle';
-        td.style.fontFamily = 'monospace';
         table.lastElementChild.appendChild(td);
       }
 
-    // Add the new table to the table container
     tableContainer.appendChild(table);
 
     });
 }
 
-refreshButton.addEventListener('click', refreshTable);
+generateButton.addEventListener('click', newTable);
+
 
 </script>
