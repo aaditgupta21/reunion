@@ -120,8 +120,6 @@
     margin-top: 4px;
   }
 </style>
-        <th:block layout:fragment="body" th:remove="tag">
-            <h1>Calculator Design Using HTML Layout</h1>
             <form method="GET" id="calcForm">
                 <table style="height:50%" id="calcu" class="container">
                     <tr>
@@ -237,5 +235,4 @@
                 const form = document.getElementById("calcForm");
                 form.addEventListener("submit", submitform);
             </script>
-        </th:block>
     </body>
