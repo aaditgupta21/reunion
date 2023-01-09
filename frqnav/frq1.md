@@ -17,7 +17,7 @@
   <body>
     <h1 style="text-align: center; font-size: 30px">
       FRQ
-      <span style="font-weight: bold">#1</span>
+      <span style="font-weight: bold">#1: Calendar</span>
     </h1>
  <div style="margin: 0 auto; text-align: center">
     <input id="year1" type="text" placeholder="Year 1" />
@@ -52,15 +52,16 @@
       monthMap.set(0, "January");
       monthMap.set(1, "February");
       monthMap.set(2, "March");
-   monthMap.set(3, "April");
-   monthMap.set(4, "May");
-   monthMap.set(5, "June");
-   monthMap.set(6, "July");
-   monthMap.set(7, "August");
-   monthMap.set(8, "September");
-   monthMap.set(9, "October");
-   monthMap.set(10, "November");
-   monthMap.set(11, "December");
+
+monthMap.set(3, "April");
+monthMap.set(4, "May");
+monthMap.set(5, "June");
+monthMap.set(6, "July");
+monthMap.set(7, "August");
+monthMap.set(8, "September");
+monthMap.set(9, "October");
+monthMap.set(10, "November");
+monthMap.set(11, "December");
 
       var dateObj = new Date();
       var month = dateObj.getUTCMonth() + 1; //months from 1-12
@@ -137,5 +138,6 @@
         font-family: "Inter", sans-serif !important;
       }
     </style>
+
   </body>
 </html>

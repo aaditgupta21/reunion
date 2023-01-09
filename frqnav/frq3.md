@@ -7,7 +7,10 @@
 {% include nav2.html %}
 </div>
 
-# Array/Arraylist
+<h1 style="text-align: center; font-size: 30px">
+      FRQ
+      <span style="font-weight: bold">#3: Calculator</span>
+    </h1>
 
 <body>
 <style>
