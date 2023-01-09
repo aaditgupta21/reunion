@@ -11,7 +11,7 @@
       <span style="font-weight: bold">#4: Light Board</span>
     </h1>
 
-<button id="refresh-button">New</button>
+<button id="refresh-button" style="text-align: center">New</button>
 
 <div id="table-container"></div>
 
