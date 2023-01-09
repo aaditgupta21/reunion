@@ -7,7 +7,7 @@
 {% include nav2.html %}
 </div>
 
-# Array/Arraylist 
+# Array/Arraylist
 
 <body>
 <style>
@@ -119,7 +119,7 @@
 </style>
         <th:block layout:fragment="body" th:remove="tag">
             <h1>Calculator Design Using HTML Layout</h1>
-            <form action="/calculator" method="GET" id="calcForm">
+            <form action="" method="GET" id="calcForm">
                 <table style="height:100%" id="calcu" class="container">
                     <tr>
                         <td><input style="width: 90%" type="text" class="result" name="input" id="calcForm1" th:value="${output}"><input style="width: 10% ; height: 5px" type="button" value="c" onclick="clr()" /> </td>
@@ -162,7 +162,7 @@
                         <td style="padding: 1px"><input style="width: 100px; height:100px"  type="button" value="." onclick="dis('.')" class= "box" name=""
                                     onkeydown="myFunction(event)"> </td>
                         <!-- solve function call function solve to evaluate value -->
-                        <td style="padding: 1px"><input style="width: 100px; height:100px"  type="submit" name="" value="=" class=" green white-text big"> </td>
+                        <td style="padding: 1px"><input style="width: 100px; height:100px"  type="submit" name="" value="Submit" class=" green white-text big"> </td>
                         <td style="padding: 1px"><input style="width: 100px; height:100px"  type="button" value="+" onclick="dis('+')" class= "box" name=""
                                     onkeydown="myFunction(event)"> </td>
                     </tr>
@@ -197,6 +197,26 @@
                 function clr() {
                     document.getElementById("calcForm1").value = ""
                 }
+                function submitform(event) {
+                  event.preventDefault();
+                  var xhr = new XMLHttpRequest();
+                  xhr.open(
+                    "GET",
+                    "https://f1.aadit.dev/api/calculator/calculate"
+                  );
+                  xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+                  const data = new FormData(event.target);
+                  const expression = data.input;
+                  xhr.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                      console.log(this.responseText);
+                    }
+                  }
+                  // builds json
+                  xhr.send(expression);
+                }
+                const form = document.getElementById("calcForm");
+                form.addEventListener("submit", submitform);
             </script>
         </th:block>
     </body>
