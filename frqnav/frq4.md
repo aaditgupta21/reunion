@@ -6,7 +6,10 @@
 {% include nav2.html %}
 </div>
 
-# FRQ 4
+<h1 style="text-align: center; font-size: 30px">
+      FRQ
+      <span style="font-weight: bold">#4: Light Board</span>
+    </h1>
 
 <button id="refresh-button">New</button>
 
