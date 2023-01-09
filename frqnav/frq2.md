@@ -12,10 +12,74 @@
     </h1>
 
 <div style="margin: 0 auto; text-align: center">
-  <input type="text" name="idInput" id="idInput" class="inputText" placeholder="search by id here"/>
-  <button onclick="searchByID">Search</button>
+  <h5 style="text-align: center; font-size: 30px">
+    Create New User
+  </h5>
+  <form method="POST" id="newUserForm">
+    <p>
+      <input
+        type="email"
+        name="email"
+        id="email"
+        placeholder="type email here"
+        class="text"
+      />
+    </p>
+    <p>
+      <input 
+        type="password" 
+        name="password" 
+        id="password" 
+        placeholder="type password here"
+        class="text"
+      />
+    </p>
+    <p>
+      <input
+        type="text"
+        name="name"
+        id="name"
+        placeholder="type name here"
+      />
+    </p>
+    <p>
+      <input
+        type="text"
+        name="dob"
+        id="dob"
+        placeholder="type date of birth here"
+      />
+    <p>
+      <input
+        type="text"
+        name="height"
+        id="height"
+        placeholder="type height here"
+      />
+    </p>
+    <p>
+      <input 
+        type="text" 
+        name="weight" 
+        id="weight" 
+        placeholder="type weight here"
+      />
+    </p>
+    <p>
+      <input
+        type="text"
+        name="gender"
+        id="gender"
+        placeholder="type gender here"
+      />
+    </p>
+    <input value="Submit" type="submit" class="button"/>
+  <form>
+
+  <!-- <input type="text" name="idInput" id="idInput" class="inputText" placeholder="search by id here"/>
+  <input type="submit" id="idSearchSubmit" name="idSearchSubmit" class="button"> -->
   <p id="bruh"></p>
-  <table id = "result">
+  <table id = "users">
     <thead>
       <tr>
         <th>id</th>
@@ -25,15 +89,103 @@
         <th>height</th>
         <th>weight</th>
         <th>gender</th>
+        <th>age</th>
+        <th>stepgoal</th>
       </tr>
     </thead>
     <tbody></tbody>
-</table>
+  </table>
+
+  <h5 style="text-align: center; font-size: 30px">
+    Create New Step Log
+  </h5>
+  <form method="POST" id="newStepLogForm">
+    <p>
+      <input
+        type="text"
+        name="id"
+        id="id"
+        placeholder="type id here"
+      />
+    </p>
+    <p>
+      <input 
+        type="text" 
+        name="date" 
+        id="date" 
+        placeholder="type date here"
+      />
+    </p>
+    <p>
+      <input
+        type="text"
+        name="steps"
+        id="steps"
+        placeholder="type steps here"
+      />
+    </p>
+    <p>
+      <input
+        type="text"
+        name="calories"
+        id="calories"
+        placeholder="type calories here"
+      />
+    <input value="Submit" type="submit" class="button"/>
+  <form>
 <div>
 
 <script>
-  // prepare HTML result container for new output
-  const resultContainer = document.getElementById("result");
+  // on submit, api call sends json for updated entry to be sent
+      function submitform(event) {
+        event.preventDefault();
+
+        // forms data
+        const data = new FormData(event.target);
+
+        const queryString = new URLSearchParams(data).toString();
+        
+        fetch("https://f1.aadit.dev/api/person/post/?" + queryString, {
+          method: "POST",
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "application/json"
+          }
+        })
+        
+        const form = document.getElementById("newUserForm");
+        form.reset();
+      }
+
+      const form = document.getElementById("newUserForm");
+      form.addEventListener("submit", submitform);
+
+    // function submitStepLogForm(event) {
+    //     event.preventDefault();
+
+    //     // forms data
+    //     const data = new FormData(event.target);
+
+    //     const queryString = new URLSearchParams(data).toString();
+        
+    //     fetch("https://f1.aadit.dev/api/person/setStepLog/?" + queryString, {
+    //       method: "POST",
+    //       mode: "no-cors",
+    //       headers: {
+    //         "Content-Type": "application/json"
+    //       }
+    //     })
+        
+    //     const stepForm = document.getElementById("newStepLogForm");
+    //     stepForm.reset();
+    //   }
+
+    //   const stepForm = document.getElementById("newStepLogForm");
+    //   stepForm.addEventListener("submit", submitStepLogForm);
+  
+  // prepare HTML user container for new output
+  const userContainer = document.getElementById("users");
+  const stepTrackerContainer = document.getElementById("steptracker");
 
   // prepare fetch options
   const url = "https://f1.aadit.dev/api/person/";
@@ -73,7 +225,7 @@
             const td = document.createElement("td");
             td.innerHTML = errorMsg;
             tr.appendChild(td);
-            resultContainer.appendChild(tr);
+            userContainer.appendChild(tr);
             return;
         }
         // valid response will have json data
@@ -89,6 +241,8 @@
               const height = document.createElement("td");
               const weight = document.createElement("td");
               const gender = document.createElement("td");
+              const age = document.createElement("td");
+              const stepgoal = document.createElement("td");
 
               id.innerHTML = row.id;
               email.innerHTML = row.email;
@@ -97,6 +251,8 @@
               height.innerHTML = row.height;
               weight.innerHTML = row.weight;
               gender.innerHTML = row.gender;
+              age.innerHTML = row.age;
+              stepgoal.innerHTML = row.stepgoal;
 
               tr.appendChild(id);
               tr.appendChild(email);
@@ -105,60 +261,10 @@
               tr.appendChild(height);
               tr.appendChild(weight);
               tr.appendChild(gender);
+              tr.appendChild(age);
+              tr.appendChild(stepgoal);
 
-              resultContainer.appendChild(tr);
-            }
-        })
-    })
-  }
-
-  function listIDS() {
-    // fetch the API
-    fetch(url, options)
-      // response is a RESTful "promise" on any successful fetch
-      .then(response => {
-        // check for response errors
-        if (response.status !== 200) {
-            const errorMsg = 'Database response error: ' + response.status;
-            console.log(errorMsg);
-            const tr = document.createElement("tr");
-            const td = document.createElement("td");
-            td.innerHTML = errorMsg;
-            tr.appendChild(td);
-            resultContainer.appendChild(tr);
-            return;
-        }
-        // valid response will have json data
-        response.json().then(data => {
-            for (const row of data) {
-
-              const tr = document.createElement("tr");
-
-              const id = document.createElement("td");
-              const email = document.createElement("td");
-              const password = document.createElement("td");
-              const name = document.createElement("td");
-              const height = document.createElement("td");
-              const weight = document.createElement("td");
-              const gender = document.createElement("td");
-
-              id.innerHTML = row.id;
-              email.innerHTML = row.email;
-              password.innerHTML = row.password;
-              name.innerHTML = row.name;
-              height.innerHTML = row.height;
-              weight.innerHTML = row.weight;
-              gender.innerHTML = row.gender;
-
-              tr.appendChild(id);
-              tr.appendChild(email);
-              tr.appendChild(password);
-              tr.appendChild(name)
-              tr.appendChild(height);
-              tr.appendChild(weight);
-              tr.appendChild(gender);
-
-              resultContainer.appendChild(tr);
+              userContainer.appendChild(tr);
             }
         })
     })
