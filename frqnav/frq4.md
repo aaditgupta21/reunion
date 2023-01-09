@@ -33,7 +33,7 @@
 const tableContainer = document.getElementById("table-container");
 
 // Generate a button
-const generateButton = document.getElementById('generate-button');
+const generateButton = document.getElementById('refresh-button');
 
 // Create a brand new table every time clicked
 function newTable() {
