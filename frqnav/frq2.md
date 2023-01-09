@@ -76,8 +76,6 @@
     <input value="Submit" type="submit" class="button"/>
   <form>
 
-  <!-- <input type="text" name="idInput" id="idInput" class="inputText" placeholder="search by id here"/>
-  <input type="submit" id="idSearchSubmit" name="idSearchSubmit" class="button"> -->
   <p id="bruh"></p>
   <table id = "users">
     <thead>
@@ -107,15 +105,13 @@
         id="id"
         placeholder="type id here"
       />
-    </p>
     <p>
-      <input 
-        type="text" 
-        name="date" 
-        id="date" 
+      <input
+        type="text"
+        name="date"
+        id="date"
         placeholder="type date here"
       />
-    </p>
     <p>
       <input
         type="text"
@@ -123,7 +119,6 @@
         id="steps"
         placeholder="type steps here"
       />
-    </p>
     <p>
       <input
         type="text"
@@ -131,8 +126,53 @@
         id="calories"
         placeholder="type calories here"
       />
+    </p>
     <input value="Submit" type="submit" class="button"/>
   <form>
+
+  <h5 style="text-align: center; font-size: 30px">
+    Get Step Logs
+  </h5>
+  <form method="POST" id="getStepLogForm">
+      <input
+        type="text"
+        name="id"
+        id="idInput"
+        placeholder="type id here"
+      />
+    <input value="Submit" type="submit" class="button"/>
+  <form>
+
+  <p id="bruh"></p>
+  <table id = "stepLogReport">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>stepGoal</th>
+        <th>totalSteps</th>
+        <th>daysRecorded</th>
+        <th>activeDays</th>
+        <th>caloriesConsumed</th>
+        <th>caloriesBurnt</th>
+        <th>netCalories</th>
+        <th>netWeightReport</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <p id="bruh"></p>
+  <table id = "stepLogStats">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>date</th>
+        <th>steps</th>
+        <th>calories</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
 <div>
 
 <script>
@@ -182,6 +222,29 @@
 
     //   const stepForm = document.getElementById("newStepLogForm");
     //   stepForm.addEventListener("submit", submitStepLogForm);
+
+    // function submitGetStepLogForm(event) {
+    //     event.preventDefault();
+
+    //     // forms data
+    //     const data = new FormData(event.target);
+
+    //     const id = document.getElementById("idInput").value.toString();
+        
+    //     fetch("https://f1.aadit.dev/api/person/post/" + id, {
+    //       method: "POST",
+    //       mode: "no-cors",
+    //       headers: {
+    //         "Content-Type": "application/json"
+    //       }
+    //     })
+        
+    //     const getLogForm = document.getElementById("getStepLogForm");
+    //     getLogForm.reset();
+    //   }
+
+    //   const getLogForm = document.getElementById("getStepLogForm");
+    //   getLogForm.addEventListener("submit", submitGetStepLogForm);
   
   // prepare HTML user container for new output
   const userContainer = document.getElementById("users");
