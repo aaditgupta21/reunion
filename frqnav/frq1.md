@@ -25,7 +25,7 @@
     <button type="submit" onclick="numberOfLeapYears()">Submit</button>
     <p>Number of Leap Years:</p>
     <p id="bruh"></p>
-    <table style="margin: 0 auto;" class="teams" border="1">
+    <table style="margin: 0 auto;" class="teams">
       <tr>
         <th>Month</th>
         <th>Day</th>
