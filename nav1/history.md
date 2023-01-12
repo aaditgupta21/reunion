@@ -1,33 +1,59 @@
 ## History of F1
 
-<!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href=
-            "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity=
-                  "sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-          crossorigin="anonymous">
-
-    <script src=
-                    "https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity=
-                    "sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous">
-    </script>
-
-    <script src=
-                    "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-            integrity=
-                    "sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            crossorigin="anonymous">
-    </script>
-
-    <script src=
-                    "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-            integrity=
-                    "sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-            crossorigin="anonymous">
-    </script>
+<style>
+  *{
+    font-family: "Inter", sans-serif;
+  }
+  body{
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: left;
+  }
+  .card{
+    border-style: round;
+    border-radius: 5px;
+    border-width: 20px;
+    padding-top: 1.25rem;
+    padding-right: 1.25rem;
+    padding-bottom: 1.25rem;
+    padding-left: 1.25rem;
+    background-color: #fcf8f7; 
+    width:80%;
+    margin-left: 8%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    position: relative;
+    column;flex-direction:column;min-width:0;
+    display:-ms-flexbox;display:flex;
+    }
+  .card-title{
+    margin-left:5px; 
+    margin-top:5px;
+  }
+  .form-control{
+    margin-left:5px; 
+    border-style: round;
+    border-radius: 5px;
+    border-width: 2px; 
+    width: 98%;
+    length: 100%;
+    font-family: sans-sarif;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+  }
+  .form-group {
+    margin-bottom: 1rem;
+}
+</style>
 </head>
 
 <body>
@@ -35,18 +61,16 @@
     <h1>Write your comments here</h1>
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">
+            <h1 class="card-title">
                 Add a Comment
-
-</h5>
+            </h1>
             <div class="form-group">
-					<textarea class="form-control"
-                              id="addTxt" rows="3">
+					<textarea class="form-control" id="addTxt" rows="3">
 					</textarea>
             </div>
             <button onclick="showNotes()" class="btn btn-primary"
                     id="addBtn" style=
-                            "background-color:pink; border-color: pink">
+                            "background-color:pink; border-color: pink; margin-left:5px; margin-top:5px">
                 Add Comment
             </button>
         </div>
@@ -56,7 +80,7 @@
     <hr>
 
 <div id="notes" class=
-            "row container-fluid">
+            "container-fluid">
     </div>
 </div>
 
@@ -89,13 +113,13 @@
         let html = "";
 
         notesObj.forEach(function (element, index) {
-            html += `<div class="noteCard my-2 mx-2 card"
-			style="width: 100%;">
-				<div class="card-body">
-					<h5 class="card-title">
+            html += `
+      <div class="noteCard my-2 mx-2 card">
+				<div class="card-body" >
+					<h1 class="card-title" >
 						Comment ${index + 1}
-					</h5>
-					<p class="card-text">
+					</h1>
+					<p class="card-text" style="color:black">
 						${element}
 					</p>
 				<button id="${index}" onclick=
