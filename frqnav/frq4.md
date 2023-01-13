@@ -6,8 +6,10 @@
 {% include nav2.html %}
 </div>
 
-# FRQ 4
-
+<h1 style="text-align: center; font-size: 30px">
+      FRQ
+      <span style="font-weight: bold">#4: Light Board</span>
+    </h1>
 <div style="text-align: center">
   <input id="numCols" type="text" placeholder="Number of Columns" />
   <input id="numRows" type="text" placeholder="Number of Rows" />
@@ -22,7 +24,7 @@
 </style>
 
 <div class="button-container-div">
-  <button class="button" id="refresh-button">New</button>
+  <button class="button" id="refresh-button">Generate New Lightboard</button>
  </div>
 
 <div id="table-container"></div>
@@ -39,6 +41,10 @@ const generateButton = document.getElementById('refresh-button');
 function newTable() {
   let numCols = document.getElementById("numCols").value;
   let numRows = document.getElementById("numRows").value;
+
+<br>
+<br>
+
 
   const API_URL = `https://f1.aadit.dev/api/lightboard/?numRows=${numRows}&numCols=${numCols}&percentLightsOff=0.0`;
   fetch(API_URL)
