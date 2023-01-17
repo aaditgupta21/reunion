@@ -18,7 +18,7 @@
     opacity: 100%;
 }
 
-@-webkit-keyframes move {
+@-webkit-keyframes move
     0% { 
         right: 5%;
         -webkit-transform: translateX(100%); 
