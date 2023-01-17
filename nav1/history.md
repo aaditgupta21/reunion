@@ -5,19 +5,17 @@
   font-size: 16px;
   border: 1px solid black;
   cursor: pointer;
-  background: url(https://boys-cry.com/wp-content/uploads/2022/04/bc_logo_black.png);
   background-repeat: no-repeat;
-  width: 100%;
+  width: 9.5em;
+  height: 15%;
 }
 .dropdown {
-  position: relative;
   display: inline-block;
 }
 .dropdown-content {
   display: none;
-  position: absolute;
   background-color: #00000000;
-  min-width: 200px;
+  width: 9.5em;
   z-index: 1;
   margin-top: 20px;
 }
@@ -33,29 +31,79 @@ hr.solid {
   border-right: none;
   border-top: 1px solid #000000;
   border-bottom: none;
+  width:9.5em;
 }
 .show {
-  display: block;
+  display: inline;
+  
 }
 </style>
 <div class="dropdown">
-  <button id="drop" class="dropbtn">Dropdown</button>
-  <button id="drop" class="dropbtn"></button>
-  <div id="myDropdown" class="dropdown-content">
-    <hr class="solid">
-    <a href="#">WE</a>
-    <hr class="solid">
-    <a href="#">CLIENTS</a>
-    <hr class="solid">
-    <a href="mailto:info@boys-cry.com">GET IN TOUCH</a>
-    <hr class="solid">
-  </div>
+  <tr>
+    <button id="UKdrop" class="dropbtn" style="background: url(https://i.postimg.cc/JhQnzRPY/ukflag.png); background-size: 100% 100%; background-repeat: no-repeat;"></button>
+    <button id="GERMANYdrop" class="dropbtn" style="background: url(https://i.postimg.cc/65DTHj8c/germanyflag.png); background-size: 100% 100%; background-repeat: no-repeat;"></button>
+    <button id="BRAZILdrop" class="dropbtn" style="background: url(https://i.postimg.cc/rwCZhHh2/brazilflag.png); background-size: 100% 100%; background-repeat: no-repeat;"></button>
+    <button id="FRANCEdrop" class="dropbtn" style="background: url(https://i.postimg.cc/jjMgT708/franceflag.webp); background-size: 100% 100%; background-repeat: no-repeat;"></button>
+  </tr>
+  <tr>
+    <td>
+      <!-- UK -->
+      <div id="UKDropdown" class="dropdown-content">
+        <hr class="solid">
+        <a href="#">WINS</a>
+        <hr class="solid">
+        <a href="#">317</a>
+        <hr class="solid">
+      </div>
+    </td>
+    <td>
+      <!-- GERMANY -->
+      <div id="GERMANYDropdown" class="dropdown-content">
+        <hr class="solid">
+        <a href="#">WINS</a>
+        <hr class="solid">
+        <a href="#">317</a>
+        <hr class="solid">
+      </div>
+    </td>
+    <td>
+      <!-- BRAZIL -->
+      <div id="BRAZILDropdown" class="dropdown-content">
+        <hr class="solid">
+        <a href="#">WINS</a>
+        <hr class="solid">
+        <a href="#">317</a>
+        <hr class="solid">
+      </div>
+    </td>
+    <td>
+      <!-- FRANCE -->
+      <div id="FRANCEDropdown" class="dropdown-content">
+        <hr class="solid">
+        <a href="#">WINS</a>
+        <hr class="solid">
+        <a href="#">317</a>
+        <hr class="solid">
+      </div>
+      </td>
+  </tr>
 </div>
 <script>
-  /* When the user clicks on the button, 
-    toggle between hiding and showing the dropdown content */
-document.getElementById("drop").addEventListener("click", function(e) {
-  document.getElementById("myDropdown").classList.toggle("show");
+// UK
+document.getElementById("UKdrop").addEventListener("click", function(e) {
+  document.getElementById("UKDropdown").classList.toggle("show");
+});
+// Germany
+document.getElementById("GERMANYdrop").addEventListener("click", function(e) {
+  document.getElementById("GERMANYDropdown").classList.toggle("show");
+});
+// Brazil
+document.getElementById("BRAZILdrop").addEventListener("click", function(e) {
+  document.getElementById("BRAZILDropdown").classList.toggle("show");
+});
+// France
+document.getElementById("FRANCEdrop").addEventListener("click", function(e) {
+  document.getElementById("FRANCEDropdown").classList.toggle("show");
 });
 // Close the dropdown if the user clicks outside of it
 window.addEventListener("click", function(event) {
