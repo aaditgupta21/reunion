@@ -13,7 +13,8 @@
   display: inline-block;
 }
 .dropdown-content {
-  display: none;
+  display: inline-block;
+  opacity: 0%;
   background-color: #00000000;
   width: 9.5em;
   z-index: 1;
@@ -34,7 +35,7 @@ hr.solid {
   width:9.5em;
 }
 .show {
-  display: inline;
+  opacity: 100%;
   
 }
 </style>
@@ -50,39 +51,39 @@ hr.solid {
       <!-- UK -->
       <div id="UKDropdown" class="dropdown-content">
         <hr class="solid">
-        <a href="#">WINS</a>
+        <a href="#">Country: UK</a>
         <hr class="solid">
-        <a href="#">317</a>
+        <a href="#">Wins: 308</a>
         <hr class="solid">
       </div>
     </td>
     <td>
       <!-- GERMANY -->
-      <div id="GERMANYDropdown" class="dropdown-content">
+      <div id="GERMANYDropdown" class="dropdown-content" style="margin-left:25px">
         <hr class="solid">
-        <a href="#">WINS</a>
+        <a href="#">Country: Germany</a>
         <hr class="solid">
-        <a href="#">317</a>
+        <a href="#">Wins: 179</a>
         <hr class="solid">
       </div>
     </td>
     <td>
       <!-- BRAZIL -->
-      <div id="BRAZILDropdown" class="dropdown-content">
+      <div id="BRAZILDropdown" class="dropdown-content" style="margin-left:25px">
         <hr class="solid">
-        <a href="#">WINS</a>
+        <a href="#">Country: Brazil</a>
         <hr class="solid">
-        <a href="#">317</a>
+        <a href="#">Wins: 101</a>
         <hr class="solid">
       </div>
     </td>
     <td>
       <!-- FRANCE -->
-      <div id="FRANCEDropdown" class="dropdown-content">
+      <div id="FRANCEDropdown" class="dropdown-content" style="margin-left:20px">
         <hr class="solid">
-        <a href="#">WINS</a>
+        <a href="#">Country: France</a>
         <hr class="solid">
-        <a href="#">317</a>
+        <a href="#">Wins: 81</a>
         <hr class="solid">
       </div>
       </td>
