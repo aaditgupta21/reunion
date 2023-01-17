@@ -1,7 +1,7 @@
 <style>
 #logo {
     position: absolute;
-    top: 250px;
+    top: 270px;
     right: 5%;
     position: absolute;
     animation: move 0.5s linear 0s;
@@ -11,7 +11,7 @@
 
 #logotext {
     position: absolute;
-    top: 170px;
+    top: 200px;
     right: 0%;
     position: absolute;
     animation: move 0.75s linear 0s;
