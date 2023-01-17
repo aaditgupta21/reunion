@@ -11,7 +11,7 @@
 
 #logotext {
     position: absolute;
-    top: 200px;
+    top: 170px;
     right: 0%;
     position: absolute;
     animation: move 0.75s linear 0s;
