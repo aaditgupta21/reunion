@@ -1,7 +1,20 @@
-## Betting
+# Betting
 
-<div>
-    <h3>Leaderboard<h3>
+<div style="margin: 0 auto; text-align: center">
+    <h1>Make A Bet<h1>
+        <p style="width=50% height=50%">
+            <input
+                type="bet"
+                name="bet"
+                id="bet"
+                placeholder="Place Your Bet Here"
+                class="text"
+                style="width=50% height=50%"
+            />
+            <input value="Submit" type="submit" class="button" style="width=50% height=50%"/>
+        </p>
+    <p id="bruh"><p>
+    <h1>Leaderboard<h1>
     <table id = "leaderboard">
         <thead>
         <tr>
