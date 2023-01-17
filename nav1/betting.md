@@ -11,6 +11,21 @@
                 class="text"
                 style="width=50% height=50%"
             />
+            <select name="team" id="team">
+                <option value="">Select a Team</option>
+                <option value="">Mercedes</option>
+                <option value="">Alpine</option>
+                <option value="">Haas</option>
+                <option value="">McLaren</option>
+                <option value="">Red Bull</option>
+                <option value="">Asten Martin</option>
+                <option value="">AlphaTauri</option>
+                <option value="">Ferrari</option>
+                <option value="">Alfa Romeo</option>
+                <option value="">Williams</option>
+            </select>
+        </p>
+        <p>
             <input value="Submit" type="submit" class="button" style="width=50% height=50%"/>
         </p>
     <p id="bruh"><p>
