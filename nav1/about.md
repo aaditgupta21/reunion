@@ -1,10 +1,10 @@
 <style>
 #logo {
     position: absolute;
-    top: 270px;
-    right: 5%;
+    top: 260px;
+    right: 0%;
     position: absolute;
-    animation: move 0.5s linear 0s;
+    animation: move 0.5s linear 0.1s;
     width: 100%;
     opacity: 100%;
 }
@@ -14,13 +14,13 @@
     top: 200px;
     right: 0%;
     position: absolute;
-    animation: move 0.75s linear 0s;
+    animation: move 0.5s linear 0.1s;
     opacity: 100%;
 }
 
-@-webkit-keyframes move
+@-webkit-keyframes move {
     0% { 
-        right: 5%;
+        right: 0 %;
         -webkit-transform: translateX(100%); 
         opacity: 0%;
     99.999% {-webkit-transform: translateX(-100%); 
