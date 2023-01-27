@@ -71,7 +71,7 @@ monthMap.set(11, "December");
       const teams = document.querySelector(".teams");
       // get JSON data from backend //
       fetch(
-        `https://f1.aadit.dev/api/calendar/dayOfWeek/${month}/${day}/${year}`
+        `https://f1-backend.aadit.dev/api/calendar/dayOfWeek/${month}/${day}/${year}`
       )
         .then((data) => data.json())
         .then((data) => {
@@ -88,7 +88,7 @@ monthMap.set(11, "December");
         </tr>`;
         });
 
-      fetch(`https://f1.aadit.dev/api/calendar/firstDayOfYear/${year}`)
+      fetch(`https://f1-backend.aadit.dev/api/calendar/firstDayOfYear/${year}`)
         .then((data) => data.json())
         .then((data) => {
           console.log(data);
@@ -102,7 +102,7 @@ monthMap.set(11, "December");
           parenttbl.appendChild(newel);
         });
 
-      fetch(`https://f1.aadit.dev/api/calendar/isLeapYear/${year}`)
+      fetch(`https://f1-backend.aadit.dev/api/calendar/isLeapYear/${year}`)
         .then((data) => data.json())
         .then((data) => {
           console.log(data);
@@ -119,7 +119,7 @@ monthMap.set(11, "December");
         let year2 = document.getElementById("year2").value;
         console.log(year1);
         fetch(
-          `https://f1.aadit.dev/api/calendar/numberOfLeapYears/${year1}/${year2}`
+          `https://f1-backend.aadit.dev/api/calendar/numberOfLeapYears/${year1}/${year2}`
         )
           .then((data) => data.json())
           .then((data) => {

@@ -26,10 +26,10 @@
       />
     </p>
     <p>
-      <input 
-        type="password" 
-        name="password" 
-        id="password" 
+      <input
+        type="password"
+        name="password"
+        id="password"
         placeholder="type password here"
         class="text"
       />
@@ -58,10 +58,10 @@
       />
     </p>
     <p>
-      <input 
-        type="text" 
-        name="weight" 
-        id="weight" 
+      <input
+        type="text"
+        name="weight"
+        id="weight"
         placeholder="type weight here"
       />
     </p>
@@ -184,28 +184,28 @@
         const data = new FormData(event.target);
 
         const queryString = new URLSearchParams(data).toString();
-        
-        fetch("https://f1.aadit.dev/api/person/post/?" + queryString, {
+
+        fetch("https://f1-backend.aadit.dev/api/person/post/?" + queryString, {
           method: "POST",
           mode: "no-cors",
           headers: {
             "Content-Type": "application/json"
           }
         })
-        
+
         const form = document.getElementById("newUserForm");
         form.reset();
       }
 
       const form = document.getElementById("newUserForm");
       form.addEventListener("submit", submitform);
-  
+
   // prepare HTML user container for new output
   const userContainer = document.getElementById("users");
   const stepTrackerContainer = document.getElementById("steptracker");
 
   // prepare fetch options
-  const url = "https://f1.aadit.dev/api/person/";
+  const url = "https://f1-backend.aadit.dev/api/person/";
 
   // not needed
   const options = {

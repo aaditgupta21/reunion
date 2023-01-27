@@ -177,11 +177,11 @@
                     console.log("varvar");
                 }
                 function myFunction(event) {
-                    if (event.key == '0' || event.key == '1' 
+                    if (event.key == '0' || event.key == '1'
                         || event.key == '2' || event.key == '3'
-                        || event.key == '4' || event.key == '5' 
+                        || event.key == '4' || event.key == '5'
                         || event.key == '6' || event.key == '7'
-                        || event.key == '8' || event.key == '9' 
+                        || event.key == '8' || event.key == '9'
                         || event.key == '+' || event.key == '-'
                         || event.key == '*' || event.key == '/')
                         document.getElementById("calcFormInput").value += event.key;
@@ -203,12 +203,12 @@
                   // var xhr = new XMLHttpRequest();
                   // xhr.open(
                   //   "GET",
-                  //   "https://f1.aadit.dev/api/calculator/calculate"
+                  //   "https://f1-backend.aadit.dev/api/calculator/calculate"
                   // );
                   // xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-                  const inputElement = document.getElementById("calcFormInput")   ;                                 
-                  const expression = inputElement.value;                  
-                  const url = "https://f1.aadit.dev/api/calculator/calculate?expression="
+                  const inputElement = document.getElementById("calcFormInput")   ;
+                  const expression = inputElement.value;
+                  const url = "https://f1-backend.aadit.dev/api/calculator/calculate?expression="
                   // const url = "http://localhost:8085/api/calculator/calculate?expression="
                   fetch(url + encodeURIComponent(expression), {cors: "no-cors"})
                   .then((response) => {
@@ -220,7 +220,7 @@
                     } else if (response.status == 400){
                       return response.json().then((data) => {
                         inputElement.value = data.error;
-                      }); 
+                      });
                     } else {
                       return response.text().then(text => {
                         console.log(text);

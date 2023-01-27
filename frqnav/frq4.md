@@ -46,7 +46,7 @@ function newTable() {
 <br>
 
 
-  const API_URL = `https://f1.aadit.dev/api/lightboard/?numRows=${numRows}&numCols=${numCols}&percentLightsOff=0.0`;
+  const API_URL = `https://f1-backend.aadit.dev/api/lightboard/?numRows=${numRows}&numCols=${numCols}&percentLightsOff=0.0`;
   fetch(API_URL)
     .then(response => response.json())
     .then(data => {
