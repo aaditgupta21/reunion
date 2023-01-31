@@ -233,21 +233,18 @@ p{
     <a style="background-color: transparent">
         <input value="Submit" type="submit" class="button" style="padding: 10px; margin:0; margin-top: 10px">
     </a>
-    <a placeholder="Place Your Bet Here"
-                class="text"
-                style="width=50% height=50%"></a>
             <select name="team" id="team">
                 <option value="">Select a Team</option>
-                <option value="">Mercedes</option>
-                <option value="">Alpine</option>
-                <option value="">Haas</option>
-                <option value="">McLaren</option>
-                <option value="">Red Bull</option>
-                <option value="">Asten Martin</option>
-                <option value="">AlphaTauri</option>
-                <option value="">Ferrari</option>
-                <option value="">Alfa Romeo</option>
-                <option value="">Williams</option>
+                <option value="">Mercedes</option> <!-- 1 -->
+                <option value="">Alpine</option> <!-- 2 -->
+                <option value="">Haas</option> <!-- 3 -->
+                <option value="">McLaren</option> <!-- 4 -->
+                <option value="">Red Bull</option> <!-- 5 -->
+                <option value="">Asten Martin</option> <!-- 6 -->
+                <option value="">AlphaTauri</option> <!-- 7 -->
+                <option value="">Ferrari</option> <!-- 8 -->
+                <option value="">Alfa Romeo</option> <!-- 9 -->
+                <option value="">Williams</option> <!-- 10 -->
             </select>
           </div>
 <div>
@@ -268,17 +265,25 @@ p{
 
     function showSlides(n) {
         let i;
+        mercedes = false;
+        alpine = false;
+        haas = false;
+        mclaren = false;
+        redbull = false;
+        astenmartin = false;
+        alphatauri = false;
+        ferrari = false;
+        alfaromeo = false;
+        williams = false;
         let slides = document.getElementsByClassName("mySlides");
-        let dots = document.getElementsByClassName("dot");
         if (n > slides.length) {slideIndex = 1}
         if (n < 1) {slideIndex = slides.length}
         for (i = 0; i < slides.length; i++) {
             slides[i].style.display = "none";
         }
-        for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-        }
         slides[slideIndex-1].style.display = "block";
-        dots[slideIndex-1].className += " active";
+        if(slideIndex == 1){
+          mercedes = true
+        }
     }
 </script>
