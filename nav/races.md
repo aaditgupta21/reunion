@@ -26,6 +26,33 @@ ul li::before {
 }
 </style>
 
+<body>
+<div class="container my-3">
+    <h1></h1>
+    <div class="card">
+        <div class="card-body">
+            <h1 class="card-title">
+                Write a year
+            </h1>
+            <div class="form-group">
+					<textarea class="form-control" id="addTxt" rows="2">
+					</textarea>
+            </div>
+            <button onclick="showNotes()" class="btn btn-primary"
+                    id="addBtn" style=
+                            "background-color: pink; border-color: pink; margin-left:5px; margin-top:10px">
+                Get Info
+            </button>
+        </div>
+    </div>
+    <hr>
+
+<div id="year" class=
+            "container-fluid">
+    </div>
+</div>
+</body>
+
 <html>
   <head>
     <meta charset="utf-8" />
