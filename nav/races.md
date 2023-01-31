@@ -52,7 +52,21 @@ ul li::before {
     </div>
 </div>
 </body>
-
+<script>
+    showNotes();
+    // Can it work??
+    let addBtn = document.getElementById("addBtn");
+    addBtn.addEventListener("click", function (e) {
+        let addTxt = document.getElementById("addTxt");
+        let notes = localStorage.getItem("notes");
+        if (notes == null) notesObj = [];
+        else notesObj = JSON.parse(notes);
+        notesObj.push(addTxt.value);
+        localStorage.setItem("notes", JSON.stringify(notesObj));
+        addTxt.value = "";
+        showNotes();
+    });
+</script>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -82,7 +96,7 @@ ul li::before {
     </table>
     <script type="text/javascript">
       const races = document.querySelector(".races");
-      fetch("http://ergast.com/api/f1/2022/races.json")
+      fetch("http://ergast.com/api/f1/2021/races.json")
         .then((data) => data.json())
         .then((data) => {
           console.log(data);
