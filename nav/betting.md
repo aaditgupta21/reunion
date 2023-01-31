@@ -53,7 +53,7 @@
         <tr>
             <th>3</th>
             <th>Nicholamos Ramanos</th>
-            <th>8000</th>
+            <th>winnerwinnerchickendinner</th>
             <th>2000</th>
         </tr>
         <tr>
@@ -67,6 +67,12 @@
             <th>Naphan Manananagaaananangan</th>
             <th>2000</th>
             <th>600</th>
+        </tr>
+         <tr>
+            <th>6</th>
+            <th>Donald Duck Quack</th>
+            <th>3500</th>
+            <th>700</th>
         </tr>
         </thead>
         <tbody></tbody>
