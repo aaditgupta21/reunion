@@ -26,10 +26,10 @@
       />
     </p>
     <p>
-      <input 
-        type="password" 
-        name="password" 
-        id="password" 
+      <input
+        type="password"
+        name="password"
+        id="password"
         placeholder="type password here"
         class="text"
       />
@@ -58,10 +58,10 @@
       />
     </p>
     <p>
-      <input 
-        type="text" 
-        name="weight" 
-        id="weight" 
+      <input
+        type="text"
+        name="weight"
+        id="weight"
         placeholder="type weight here"
       />
     </p>
@@ -184,15 +184,15 @@
         const data = new FormData(event.target);
 
         const queryString = new URLSearchParams(data).toString();
-        
-        fetch("https://f1.aadit.dev/api/person/post/?" + queryString, {
+
+        fetch("https://f1-backend.aadit.dev/api/person/post/?" + queryString, {
           method: "POST",
           mode: "no-cors",
           headers: {
             "Content-Type": "application/json"
           }
         })
-        
+
         const form = document.getElementById("newUserForm");
         form.reset();
       }
@@ -200,59 +200,14 @@
       const form = document.getElementById("newUserForm");
       form.addEventListener("submit", submitform);
 
-    // function submitStepLogForm(event) {
-    //     event.preventDefault();
-
-    //     // forms data
-    //     const data = new FormData(event.target);
-
-    //     const queryString = new URLSearchParams(data).toString();
-        
-    //     fetch("https://f1.aadit.dev/api/person/setStepLog/?" + queryString, {
-    //       method: "POST",
-    //       mode: "no-cors",
-    //       headers: {
-    //         "Content-Type": "application/json"
-    //       }
-    //     })
-        
-    //     const stepForm = document.getElementById("newStepLogForm");
-    //     stepForm.reset();
-    //   }
-
-    //   const stepForm = document.getElementById("newStepLogForm");
-    //   stepForm.addEventListener("submit", submitStepLogForm);
-
-    // function submitGetStepLogForm(event) {
-    //     event.preventDefault();
-
-    //     // forms data
-    //     const data = new FormData(event.target);
-
-    //     const id = document.getElementById("idInput").value.toString();
-        
-    //     fetch("https://f1.aadit.dev/api/person/post/" + id, {
-    //       method: "POST",
-    //       mode: "no-cors",
-    //       headers: {
-    //         "Content-Type": "application/json"
-    //       }
-    //     })
-        
-    //     const getLogForm = document.getElementById("getStepLogForm");
-    //     getLogForm.reset();
-    //   }
-
-    //   const getLogForm = document.getElementById("getStepLogForm");
-    //   getLogForm.addEventListener("submit", submitGetStepLogForm);
-  
   // prepare HTML user container for new output
   const userContainer = document.getElementById("users");
   const stepTrackerContainer = document.getElementById("steptracker");
 
   // prepare fetch options
-  const url = "https://f1.aadit.dev/api/person/";
+  const url = "https://f1-backend.aadit.dev/api/person/";
 
+  // not needed
   const options = {
       method: 'GET', // *GET, POST, PUT, DELETE, etc.
       mode: 'cors', // no-cors, *cors, same-origin
@@ -264,6 +219,7 @@
       },
   };
 
+  // not needed
   const putOptions = {
       method: 'PUT', // *GET, POST, PUT, DELETE, etc.
       mode: 'cors', // no-cors, *cors, same-origin
@@ -275,6 +231,7 @@
       },
   };
 
+  // for nicky follow this example
   function listIDS() {
     // fetch the API
     fetch(url, options)

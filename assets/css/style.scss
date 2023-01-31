@@ -52,6 +52,17 @@ input[type="text"],
   color: black;
 }
 
+input[type="password"],
+.password {
+  width: 50%;
+  padding: 5px 5px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid #CD2A2A;
+  border-radius: 40px;
+  color: black;
+}
+
 button,
 .button {
   background-color: #CD2A2A;
