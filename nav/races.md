@@ -31,13 +31,17 @@ ul li::before {
     <meta charset="utf-8" />
     <title>F1 Races</title>
     <meta name="description" content="F1 Races and their Information." />
+    <style>
+      table.center {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    </style>
   </head>
   <body>
     <h1 style="text-align: center; font-size: 50px">
       F1 Races
     </h1>
-
-
     <table class="races" border="1">
       <tr>
         <th>Date (year,month,day)</th>
@@ -51,8 +55,7 @@ ul li::before {
     </table>
     <script type="text/javascript">
       const races = document.querySelector(".races");
-
-      fetch("https://f1-backend.aadit.dev/api/races")
+      fetch("http://ergast.com/api/f1/2022/races.json")
         .then((data) => data.json())
         .then((data) => {
           console.log(data);
@@ -69,43 +72,41 @@ ul li::before {
         </tr>`;
           });
         });
-
     </script>
-
     <style type="text/css">
       @import url("https://rsms.me/inter/inter.css");
       @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap");
-
       * {
         font-family: "Inter", sans-serif !important;
       }
-
-
       .races {
-        margin-right: none;
-        margin-left: none;
+        margin-right: auto;
+        margin-left: auto;
         padding: 0;
         columns: 3;
         font-size: 20px;
       }
-
       img {
         width: 800px;
       }
-
       ul {
         -webkit-column-count: 3;
         -moz-column-count: 3;
         column-count: 3;
       }
-
       table {
         color: black
-        margin: 0 auto;
+        margin-left: auto;
+        margin-right: auto;
         width: 90%;
         text-align: center;
       }
+      table.center {
+  margin-left: auto;
+  margin-right: auto;
+      }
     </style>
+   
   </body>
 
   <style>
