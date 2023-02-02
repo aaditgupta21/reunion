@@ -233,20 +233,6 @@ p{
     <a style="background-color: transparent">
         <input value="Submit" type="submit" class="button" style="padding: 10px; margin:0; margin-top: 10px">
     </a>
-            <select name="team" id="team">
-                <option value="">Select a Team</option>
-                <option value="">Mercedes</option> <!-- 1 -->
-                <option value="">Alpine</option> <!-- 2 -->
-                <option value="">Haas</option> <!-- 3 -->
-                <option value="">McLaren</option> <!-- 4 -->
-                <option value="">Red Bull</option> <!-- 5 -->
-                <option value="">Asten Martin</option> <!-- 6 -->
-                <option value="">AlphaTauri</option> <!-- 7 -->
-                <option value="">Ferrari</option> <!-- 8 -->
-                <option value="">Alfa Romeo</option> <!-- 9 -->
-                <option value="">Williams</option> <!-- 10 -->
-            </select>
-          </div>
 <div>
 
 <script>
