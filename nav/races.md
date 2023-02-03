@@ -28,7 +28,6 @@ ul li::before {
 
 <body>
 <div class="container my-3">
-    <h1></h1>
     <div class="card">
         <div class="card-body">
             <h1 class="card-title">
@@ -67,6 +66,28 @@ ul li::before {
         showNotes();
     });
 </script>
+
+<div style="margin: 0 auto; text-align: center">
+    <input type="text" id="year" name="year" placeholder="Enter Year Here" 
+    style="width: 50%;
+  padding: 5px 5px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid #CD2A2A;
+  border-radius: 40px;
+  color: gray;">
+    <button type="submit" onclick="formSubmit()">Get Info</button>
+</div>
+
+<script type="text/javascript">
+    function formSubmit() {
+        let year = document.getElementById("year").value;
+        console.log(year);
+        data = {year: year}
+        console.log(data);
+    }
+  </script>
+
 <html>
   <head>
     <meta charset="utf-8" />
@@ -79,11 +100,10 @@ ul li::before {
       }
     </style>
   </head>
-  <body>
     <h1 style="text-align: center; font-size: 50px">
       F1 Races
     </h1>
-    <table class="races" border="1">
+    <table class="races" border="1" style="position: absolute; top: 100%;left: -15%;">
       <tr>
         <th>Date (year,month,day)</th>
         <th>Round</th>
@@ -96,7 +116,7 @@ ul li::before {
     </table>
     <script type="text/javascript">
       const races = document.querySelector(".races");
-      fetch("http://ergast.com/api/f1/2021/races.json")
+      fetch("http://ergast.com/api/f1/2023/races.json")
         .then((data) => data.json())
         .then((data) => {
           console.log(data);
@@ -148,8 +168,6 @@ ul li::before {
       }
     </style>
    
-  </body>
-
   <style>
   .table {
   color: red;
