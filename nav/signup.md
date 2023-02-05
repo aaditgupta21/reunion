@@ -58,7 +58,7 @@ var requestOptions = {
   redirect: 'manual',
 };
          fetch(
-          `http://f1-backend.aadit.dev/api/user/newUser?email=${email}&password=${password}&name=${name}&dob=${dob}&gender=${gender}&teamName=${teamName}`,requestOptions
+          `https://f1-backend.aadit.dev/api/user/newUser?email=${email}&password=${password}&name=${name}&dob=${dob}&gender=${gender}&teamName=${teamName}`,requestOptions
         )
           .then(response => response.text())
   .then(result => console.log(result))
