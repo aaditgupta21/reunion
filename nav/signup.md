@@ -29,9 +29,9 @@ Signup
   border-radius: 40px;
   color: gray;">
     <option value="">--Please choose an option--</option>
-    <option value="M">Male</option>
-    <option value="F">Female</option>
-    <option value="O">Nonbinary</option>
+    <option value="Male">Male</option>
+    <option value="Female">Female</option>
+    <option value="Other">Nonbinary</option>
 </select>
     <input type="text" id="teamName" name="teamName" placeholder="Team Name">
     <button type="submit" onclick="formSubmit()">Submit</button>
@@ -51,17 +51,25 @@ Signup
         console.log(dob);
 var myHeaders = new Headers();
 myHeaders.append("Content-Type", "application/json");
-
+data = {email: email, password: password, name: name, dob: dob, gender: gender, teamName: teamName}
 var requestOptions = {
   method: 'POST',
   headers: myHeaders,
   redirect: 'manual',
+  body: JSON.stringify(data)
 };
          fetch(
-          `https://f1-backend.aadit.dev/api/user/newUser?email=${email}&password=${password}&name=${name}&dob=${dob}&gender=${gender}&teamName=${teamName}`,requestOptions
+          `https://f1-backend.aadit.dev/api/user/newUser`,requestOptions
         )
           .then(response => response.text())
-  .then(result => console.log(result))
+  .then(result => {
+    console.log(result);
+    if (result == `${email} user created successfully`) {
+      window.location.href = "https://aaditgupta21.github.io/reunion/login";
+    } else {
+      alert("Invalid credentials");
+    }
+  })
   .catch(error => console.log('error', error));
 
     }
