@@ -29,37 +29,40 @@ Signup
   border-radius: 40px;
   color: gray;">
     <option value="">--Please choose an option--</option>
-    <option value="dog">Male</option>
-    <option value="cat">Female</option>
-    <option value="hamster">Nonbinary</option>
-    <option value="parrot">Choose not to say</option>
+    <option value="M">Male</option>
+    <option value="F">Female</option>
+    <option value="O">Nonbinary</option>
 </select>
     <input type="text" id="teamName" name="teamName" placeholder="Team Name">
     <button type="submit" onclick="formSubmit()">Submit</button>
 </div>
 
 <script type="text/javascript">
-    // function formSubmit() {
-    //     let email = document.getElementById("email").value;
-    //     let password = document.getElementById("password").value;
-    //     let name = document.getElementById("name").value;
-    //     let dob = document.getElementById("dob").value;
-    //     let gender = document.getElementById("gender").value;
-    //     let teamName = document.getElementById("teamName").value;
-    //     // console.log(email);
-    //     data = {email: email, password: password, name: name, dob: dob, gender: gender, teamName: teamName}
+    function formSubmit() {
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+        let name = document.getElementById("name").value;
+        let dob = document.getElementById("dob").value;
+        let gender = document.getElementById("gender").value;
+        let teamName = document.getElementById("teamName").value;
+        // console.log(email);
 
-    //      fetch(
-    //       `https://f1-backend.aadit.dev/api/auth/newUser?email=${email}&password=${password}&name=${name}&dob=${dob}&gender=${gender}&teamName=${teamName}`, {method: "POST", mode: 'no-cors',cache: 'default', credentials: 'same-origin'}
-    //     )
-    //       .then((data) => data.json())
-    //       .then((data) => {
-    //         console.log(data);
-    //        if (data.status == 200) {
-    //           window.location.href = "https://aaditgupta21.github.io/reunion";
-    //         } else {
-    //           alert("Invalid credentials");
-    //         }
-    //       })
-    // }
+        console.log(gender);
+        console.log(dob);
+var myHeaders = new Headers();
+myHeaders.append("Content-Type", "application/json");
+
+var requestOptions = {
+  method: 'POST',
+  headers: myHeaders,
+  redirect: 'manual',
+};
+         fetch(
+          `http://f1-backend.aadit.dev/api/user/newUser?email=${email}&password=${password}&name=${name}&dob=${dob}&gender=${gender}&teamName=${teamName}`,requestOptions
+        )
+          .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
+
+    }
 </script>
