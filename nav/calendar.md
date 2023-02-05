@@ -108,7 +108,7 @@ calendar.createEvents([
           races.innerHTML += `
       <tr>
         <td>${data.raceName}</td>
-                <td>${data.date}</td>
+        <td>${data.date}</td>
         <td></td>
       </tr>`;
         });
