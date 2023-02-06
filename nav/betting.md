@@ -476,4 +476,33 @@ p{
         }
         slides[slideIndex-1].style.display = "block";
     }
+
+    function formSubmit() {
+        let num = slides[i]+1;
+
+        console.log(gender);
+        console.log(dob);
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+        var requestOptions = {
+          method: 'POST',
+          headers: myHeaders,
+          redirect: 'manual',
+          body: JSON.stringify(data)
+        };
+         fetch(
+          `https://f1-backend.aadit.dev/api/user/updateCoins`,requestOptions
+        )
+          .then(response => response.text())
+        .then(result => {
+          console.log(result);
+          if (result == `${email} user created successfully`) {
+            window.location.href = "https://aaditgupta21.github.io/reunion/login";
+          } else {
+            alert("Invalid credentials");
+          }
+        })
+        .catch(error => console.log('error', error));
+    }
 </script>
