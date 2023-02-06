@@ -100,7 +100,34 @@
 p{
     background-color: transparent;
 }
+#search {
+    width:90%;
+}
 
+.searchicon {
+    color:#5CB85C;
+}
+
+.items-collection{
+    margin:20px 0 0 0;
+}
+.items-collection label.btn-default.active{
+    background-color:#007ba7;
+    color:#FFF;
+}
+.items-collection label.btn-default{
+    width:90%;
+    border:1px solid #305891;
+    margin:5px; 
+    border-radius: 17px;
+    color: #305891;
+}
+.items-collection label .itemcontent{
+    width:100%;
+}
+.items-collection .btn-group{
+    width:90%
+}
 @keyframes fade {
   from {opacity: .4}
   to {opacity: 3}
@@ -118,43 +145,223 @@ p{
 <div class="row">
 <!-- COLUMN 1 -->
   <div class="column" style="background-color:gray;">
-    <h2>MAR 03-05</h2>
+      <div class="items col-xs-6 col-sm-3 col-md-3 col-lg-3">
+        <div class="info-block block-info clearfix">
+          <div data-toggle="buttons" class="btn-group bizmoduleselect">
+            <label class="btn btn-default">
+              <div class="itemcontent">
+                  <input type="checkbox" name="var_id[]" autocomplete="off" value="">
+                  <span class="fa fa-car fa-2x"></span>
+                  <h5>MAR 25-26</h5>
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
     <br>
-    <h2>MAR 31-02</h2>
+    <div class="items col-xs-6 col-sm-3 col-md-3 col-lg-3">
+        <div class="info-block block-info clearfix">
+          <div data-toggle="buttons" class="btn-group bizmoduleselect">
+            <label class="btn btn-default">
+              <div class="itemcontent">
+                  <input type="checkbox" name="var_id[]" autocomplete="off" value="">
+                  <span class="fa fa-car fa-2x"></span>
+                  <h5>MAR 31-02</h5>
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
     <br>
-    <h2>APR 28-30</h2>
+    <div class="items col-xs-6 col-sm-3 col-md-3 col-lg-3">
+        <div class="info-block block-info clearfix">
+          <div data-toggle="buttons" class="btn-group bizmoduleselect">
+            <label class="btn btn-default">
+              <div class="itemcontent">
+                  <input type="checkbox" name="var_id[]" autocomplete="off" value="">
+                  <span class="fa fa-car fa-2x"></span>
+                  <h5>APR 28-30</h5>
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
     <br>
-    <h2>MAY 05-07</h2>
+    <div class="items col-xs-6 col-sm-3 col-md-3 col-lg-3">
+        <div class="info-block block-info clearfix">
+          <div data-toggle="buttons" class="btn-group bizmoduleselect">
+            <label class="btn btn-default">
+              <div class="itemcontent">
+                  <input type="checkbox" name="var_id[]" autocomplete="off" value="">
+                  <span class="fa fa-car fa-2x"></span>
+                  <h5>MAY 05-07</h5>
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
     <br>
-    <h2>MAY 19-21</h2>
+    <div class="items col-xs-6 col-sm-3 col-md-3 col-lg-3">
+        <div class="info-block block-info clearfix">
+          <div data-toggle="buttons" class="btn-group bizmoduleselect">
+            <label class="btn btn-default">
+              <div class="itemcontent">
+                  <input type="checkbox" name="var_id[]" autocomplete="off" value="">
+                  <span class="fa fa-car fa-2x"></span>
+                  <h5>MAY 19-21</h5>
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
     <br>
   </div>
 
   <!-- COLUMN 2 -->
   <div class="column" style="background-color:gray;">
-    <h2>MAR 03-05</h2>
+    <div class="items col-xs-6 col-sm-3 col-md-3 col-lg-3">
+        <div class="info-block block-info clearfix">
+          <div data-toggle="buttons" class="btn-group bizmoduleselect">
+            <label class="btn btn-default">
+              <div class="itemcontent">
+                  <input type="checkbox" name="var_id[]" autocomplete="off" value="">
+                  <span class="fa fa-car fa-2x"></span>
+                  <h5>MAR 03-05</h5>
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
     <br>
-    <h2>MAR 31-02</h2>
+    <div class="items col-xs-6 col-sm-3 col-md-3 col-lg-3">
+        <div class="info-block block-info clearfix">
+          <div data-toggle="buttons" class="btn-group bizmoduleselect">
+            <label class="btn btn-default">
+              <div class="itemcontent">
+                  <input type="checkbox" name="var_id[]" autocomplete="off" value="">
+                  <span class="fa fa-car fa-2x"></span>
+                  <h5>MAR 31-02</h5>
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
     <br>
-    <h2>APR 28-30</h2>
+    <div class="items col-xs-6 col-sm-3 col-md-3 col-lg-3">
+        <div class="info-block block-info clearfix">
+          <div data-toggle="buttons" class="btn-group bizmoduleselect">
+            <label class="btn btn-default">
+              <div class="itemcontent">
+                  <input type="checkbox" name="var_id[]" autocomplete="off" value="">
+                  <span class="fa fa-car fa-2x"></span>
+                  <h5>APR 28-30</h5>
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
     <br>
-    <h2>MAY 05-07</h2>
+    <div class="items col-xs-6 col-sm-3 col-md-3 col-lg-3">
+        <div class="info-block block-info clearfix">
+          <div data-toggle="buttons" class="btn-group bizmoduleselect">
+            <label class="btn btn-default">
+              <div class="itemcontent">
+                  <input type="checkbox" name="var_id[]" autocomplete="off" value="">
+                  <span class="fa fa-car fa-2x"></span>
+                  <h5>MAY 05-07</h5>
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
     <br>
-    <h2>MAY 19-21</h2>
+    <div class="items col-xs-6 col-sm-3 col-md-3 col-lg-3">
+        <div class="info-block block-info clearfix">
+          <div data-toggle="buttons" class="btn-group bizmoduleselect">
+            <label class="btn btn-default">
+              <div class="itemcontent">
+                  <input type="checkbox" name="var_id[]" autocomplete="off" value="">
+                  <span class="fa fa-car fa-2x"></span>
+                  <h5>MAY 19-21</h5>
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
     <br>
   </div>
 
   <!-- COLUMN 3 -->
   <div class="column" style="background-color:gray">
-    <h2>MAR 03-05</h2>
+    <div class="items col-xs-6 col-sm-3 col-md-3 col-lg-3">
+        <div class="info-block block-info clearfix">
+          <div data-toggle="buttons" class="btn-group bizmoduleselect">
+            <label class="btn btn-default">
+              <div class="itemcontent">
+                  <input type="checkbox" name="var_id[]" autocomplete="off" value="">
+                  <span class="fa fa-car fa-2x"></span>
+                  <h5>MAR 25-26</h5>
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
     <br>
-    <h2>MAR 31-02</h2>
+    <div class="items col-xs-6 col-sm-3 col-md-3 col-lg-3">
+        <div class="info-block block-info clearfix">
+          <div data-toggle="buttons" class="btn-group bizmoduleselect">
+            <label class="btn btn-default">
+              <div class="itemcontent">
+                  <input type="checkbox" name="var_id[]" autocomplete="off" value="">
+                  <span class="fa fa-car fa-2x"></span>
+                  <h5>MAR 31-02</h5>
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
     <br>
-    <h2>APR 28-30</h2>
+    <div class="items col-xs-6 col-sm-3 col-md-3 col-lg-3">
+        <div class="info-block block-info clearfix">
+          <div data-toggle="buttons" class="btn-group bizmoduleselect">
+            <label class="btn btn-default">
+              <div class="itemcontent">
+                  <input type="checkbox" name="var_id[]" autocomplete="off" value="">
+                  <span class="fa fa-car fa-2x"></span>
+                  <h5>APR 28-30</h5>
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
     <br>
-    <h2>MAY 05-07</h2>
+    <div class="items col-xs-6 col-sm-3 col-md-3 col-lg-3">
+        <div class="info-block block-info clearfix">
+          <div data-toggle="buttons" class="btn-group bizmoduleselect">
+            <label class="btn btn-default">
+              <div class="itemcontent">
+                  <input type="checkbox" name="var_id[]" autocomplete="off" value="">
+                  <span class="fa fa-car fa-2x"></span>
+                  <h5>MAY 05-07</h5>
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
     <br>
-    <h2>MAY 19-21</h2>
+    <div class="items col-xs-6 col-sm-3 col-md-3 col-lg-3">
+        <div class="info-block block-info clearfix">
+          <div data-toggle="buttons" class="btn-group bizmoduleselect">
+            <label class="btn btn-default">
+              <div class="itemcontent">
+                  <input type="checkbox" name="var_id[]" autocomplete="off" value="">
+                  <span class="fa fa-car fa-2x"></span>
+                  <h5>MAY 19-21</h5>
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
     <br>
   </div>
 
@@ -251,16 +458,16 @@ p{
 
     function showSlides(n) {
         let i;
-        mercedes = false;
-        alpine = false;
-        haas = false;
-        mclaren = false;
-        redbull = false;
-        astenmartin = false;
-        alphatauri = false;
-        ferrari = false;
-        alfaromeo = false;
-        williams = false;
+        mercedes = false; // 1
+        alpine = false; // 2
+        haas = false; // 3
+        mclaren = false; // 4
+        redbull = false; // 5
+        astenmartin = false; // 6
+        alphatauri = false; // 7
+        ferrari = false; // 8
+        alfaromeo = false; // 9
+        williams = false; // 10
         let slides = document.getElementsByClassName("mySlides");
         if (n > slides.length) {slideIndex = 1}
         if (n < 1) {slideIndex = slides.length}
@@ -268,8 +475,5 @@ p{
             slides[i].style.display = "none";
         }
         slides[slideIndex-1].style.display = "block";
-        if(slideIndex == 1){
-          mercedes = true
-        }
     }
 </script>
