@@ -116,7 +116,8 @@ ul li::before {
     </table>
     <script type="text/javascript">
       const races = document.querySelector(".races");
-      fetch("https://f1-backend.aadit.dev/api/race/races/?year=" + year)
+      // https://f1-backend.aadit.dev/api/race/races?year=2021
+      fetch("https://f1-backend.aadit.dev/api/race/races?year=" + year)
         .then((data) => data.json())
         .then((data) => {
           console.log(data);
