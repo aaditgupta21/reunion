@@ -35,6 +35,8 @@ Signup
 </select>
     <input type="text" id="teamName" name="teamName" placeholder="Team Name">
     <button type="submit" onclick="formSubmit()">Submit</button>
+    <br>
+<a href="/reunion/login">Already have an account? Login here!</a>
 </div>
 
 <script type="text/javascript">
