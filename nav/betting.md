@@ -497,10 +497,10 @@ p{
           .then(response => response.text())
         .then(result => {
           console.log(result);
-          if (result == `${email} user created successfully`) {
-            window.location.href = "https://aaditgupta21.github.io/reunion/login";
+          if (result == `${f1coin} coins successfully`) {
+            window.location.href = "https://aaditgupta21.github.io/reunion/nav/betting";
           } else {
-            alert("Invalid credentials");
+            alert("Error inputting coins, try again later.");
           }
         })
         .catch(error => console.log('error', error));
