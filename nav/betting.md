@@ -428,8 +428,7 @@ p{
   <br>
     <h4 style="background-color: transparent; color: white">Make A Bet</h4>
         <a style="width:100%; height:10%; background-color: transparent; margin-left:0; color:white">
-            <input
-                type="bet"
+            <input type="number"
                 name="bet"
                 id="bet"
                 placeholder="Place Bet Here"
@@ -438,9 +437,10 @@ p{
         </a>
     <br>
     <a style="background-color: transparent">
-        <input value="Submit" type="submit" class="button" style="padding: 10px; margin:0; margin-top: 10px">
+        <input value="Submit" type="submit" class="button" onclick="formSubmit()" style="padding: 10px; margin:0; margin-top: 10px">
     </a>
 <div>
+<a id="updcoin"></a>
 
 <script>
     let slideIndex = 1;
@@ -479,9 +479,11 @@ p{
 
     function formSubmit() {
         let num = slides[i]+1;
+        let coins = document.getElementById("bet").value;
+        if (num == 1){
+          
+        }
 
-        console.log(gender);
-        console.log(dob);
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
 
