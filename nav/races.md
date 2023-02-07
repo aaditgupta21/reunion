@@ -27,47 +27,15 @@ ul li::before {
 </style>
 
 <body>
-<div class="container my-3">
-    <div class="card">
-        <div class="card-body">
-            <h1 class="card-title">
-                Write a year
-            </h1>
-            <div class="form-group">
-					<textarea class="form-control" id="addTxt" rows="2">
-					</textarea>
-            </div>
-            <button onclick="showNotes()" class="btn btn-primary"
-                    id="addBtn" style=
-                            "background-color: pink; border-color: pink; margin-left:5px; margin-top:10px">
-                Get Info
-            </button>
-        </div>
-    </div>
-    <hr>
 
-<div id="year" class=
+
+<div id="years" class=
             "container-fluid">
     </div>
-</div>
 </body>
-<script>
-    showNotes();
-    // Can it work??
-    let addBtn = document.getElementById("addBtn");
-    addBtn.addEventListener("click", function (e) {
-        let addTxt = document.getElementById("addTxt");
-        let notes = localStorage.getItem("notes");
-        if (notes == null) notesObj = [];
-        else notesObj = JSON.parse(notes);
-        notesObj.push(addTxt.value);
-        localStorage.setItem("notes", JSON.stringify(notesObj));
-        addTxt.value = "";
-        showNotes();
-    });
-</script>
 
-<div style="margin: 0 auto; text-align: center">
+
+<div lik style="margin: 0 auto; text-align: center">
     <input type="text" id="year" name="year" placeholder="Enter Year Here" 
     style="width: 50%;
   padding: 5px 5px;
@@ -83,10 +51,33 @@ ul li::before {
     function formSubmit() {
         let year = document.getElementById("year").value;
         console.log(year);
-        data = {year: year}
-        console.log(data);
+        // data = {year: year}
+        // console.log(data);
+        console.log("https://f1-backend.aadit.dev/api/race/races/" + year);
+
+        const races = document.querySelector(".races");
+      // https://f1-backend.aadit.dev/api/race/races?year=2021
+      fetch("https://f1-backend.aadit.dev/api/race/races/" + year)
+        .then((data) => data.json())
+        .then((data) => {
+          console.log(data);
+          data.MRData.RaceTable.Races.forEach((data) => {
+            races.innerHTML += `
+        <tr>
+          <td>${data.date}</td>
+            <td>${data.round}</td>
+            <td>${data.season}</td>
+            <td>${data.raceName}</td>
+            <td>${data.Circuit.circuitName}</td>
+            <td>${data.Circuit.Location.country}</td>
+            <td>${data.Circuit.Location.locality}</td>
+        </tr>`;
+          });
+        });
     }
   </script>
+
+  ---------------------------
 
 <html>
   <head>
@@ -117,7 +108,7 @@ ul li::before {
     <script type="text/javascript">
       const races = document.querySelector(".races");
       // https://f1-backend.aadit.dev/api/race/races?year=2021
-      fetch("https://f1-backend.aadit.dev/api/race/races?year=" + year)
+      fetch("https://f1-backend.aadit.dev/api/race/races/" + year)
         .then((data) => data.json())
         .then((data) => {
           console.log(data);
