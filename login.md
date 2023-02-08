@@ -28,11 +28,11 @@ Login
           `https://f1-backend.aadit.dev/authenticate`, {method: "POST", mode: 'cors',cache: 'default', credentials: 'include', headers: {'Content-Type': "application/json"}, body: JSON.stringify(data)})
           .then((data) => {
             console.log(data);
-            if (data.status == 200) {
-              window.location.href = "https://aaditgupta21.github.io/reunion";
-            } else {
-              alert("Invalid credentials");
-            }
-          });
+          //   if (data.status == 200) {
+          //     window.location.href = "https://aaditgupta21.github.io/reunion";
+          //   } else {
+          //     alert("Invalid credentials");
+          //   }
+          // });
       }
 </script>
