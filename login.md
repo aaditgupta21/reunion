@@ -25,7 +25,7 @@ Login
         console.log(data);
 
         fetch(
-          `https://f1-backend.aadit.dev/authenticate`, {method: "POST", mode: 'cors',cache: 'default', credentials: 'include', headers: {'Content-Type': "application/json"}, body: JSON.stringify(data)})
+          `https://f1-backend.aadit.dev/authenticate`, {method: "POST", mode: 'cors',cache: 'no-cache', credentials: 'include', headers: {'Content-Type': "application/json"}, body: JSON.stringify(data)})
           .then((data) => {
             console.log(data);
             // if (data.status == 200) {
