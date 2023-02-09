@@ -36,7 +36,7 @@ ul li::before {
 
 
 <div lik style="margin: 0 auto; text-align: center">
-    <input type="text" id="year" name="year" placeholder="Enter Year Here" 
+    <input type="text" id="year" name="year" placeholder="Enter Year Here"
     style="width: 50%;
   padding: 5px 5px;
   margin: 8px 0;
@@ -57,7 +57,7 @@ ul li::before {
 
         const races = document.querySelector(".races");
       // https://f1-backend.aadit.dev/api/race/races?year=2021
-      fetch("https://f1-backend.aadit.dev/api/race/races/" + year)
+      fetch("https://f1-backend.aadit.dev/api/race/races/" + year, {method: "GET", mode: 'cors',cache: 'default', credentials: 'include', headers: {'Content-Type': "application/json"}, body: JSON.stringify(data)})
         .then((data) => data.json())
         .then((data) => {
           console.log(data);
@@ -159,7 +159,7 @@ ul li::before {
   margin-right: auto;
       }
     </style>
-   
+
   <style>
   .table {
   color: red;
