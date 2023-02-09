@@ -38,30 +38,28 @@ Sell a Part
         let partType = document.getElementById("partType").value;
         let description = document.getElementById("description").value;
         let initialCost = document.getElementById("initialCost").value;
+        let currentCost = initialCost.value;
         let endDate = document.getElementById("endDate").value;
         let weight = document.getElementById("weight").value;
         let imageUrl = document.getElementById("imageUrl").value;
-        // console.log(email);
 
-        console.log(gender);
-        console.log(dob);
-var myHeaders = new Headers();
-myHeaders.append("Content-Type", "application/json");
-data = {partType: partType, description: description, initialCost: initialCost, endDate: endDate, weight: weight, imageUrl: imageUrl}
-var requestOptions = {
-  method: 'POST',
-  headers: myHeaders,
-  redirect: 'manual',
-  body: JSON.stringify(data)
-};
-         fetch(
-          `https://f1-backend.aadit.dev/api/item/newItem`,requestOptions
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+        data = {partType: partType, description: description, endDate: endDate, initialCost: initialCost, currentCost: currentCost, imageUrl: imageUrl, weight: weight}
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            redirect: 'manual',
+            body: JSON.stringify(data)
+        };
+        fetch(
+          `http://localhost:8085/api/item/newItem`,requestOptions
         )
           .then(response => response.text())
   .then(result => {
     console.log(result);
     if (result == `${partType} listed successfully!`) {
-      window.location.href = "https://aaditgupta21.github.io/reunion/sellnav/listings";
+      window.location.href = "http://localhost:4001/reunion/sellnav/listings";
     } else {
       alert("Error");
     }
