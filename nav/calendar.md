@@ -62,6 +62,8 @@
   </style>
 </head>
 
+<script type="text/javascript" src="table_script.js"></script>
+
 <body>
 <h1 style="text-align: center; font-size: 50px">
 2023 Calendar
@@ -110,12 +112,31 @@
 
 </script>
 
-<table class="races" border="1">
+<table class="races" border="1" align='center' cellspacing=2 cellpadding=5 id="data_table" border=1>
   <tr>
     <th>Event</th>
     <th>Date</th>
-    <th>Comment</th>
+    <th>Notes</th>
+    <th>Edit</th>
   </tr>
+
+<tr>
+<td><input type="text" id="new_name"></td>
+<td><input type="text" id="new_country"></td>
+<td><input type="text" id="new_age"></td>
+<td><input type="button" class="add" onclick="add_row();" value="Add Row"></td>
+</tr>
+
+<tr id="row1">
+<td id="name_row1">Bahrain</td>
+<td id="country_row1">2023-03-05</td>
+<td id="age_row1">x team has x chance of winning!</td>
+<td>
+<input type="button" id="edit_button1" value="Edit" class="edit" onclick="edit_row('1')">
+<input type="button" id="save_button1" value="Save" class="save" onclick="save_row('1')">
+<input type="button" value="Delete" class="delete" onclick="delete_row('1')">
+</td>
+</tr>
 </table>
 <script type="text/javascript">
     const races = document.querySelector(".races");
@@ -129,66 +150,11 @@
         <td>${data.raceName}</td>
                 <td>${data.date}</td>
         <td></td>
-      </tr>`;
-        });
-      });
-  </script>
-
-</body>
-</html>
-
-
-
-<html>
-<head>
-<script type="text/javascript" src="table_script.js"></script>
-</head>
-<body>
-<div id="wrapper">
-<table class="races" align='center' cellspacing=2 cellpadding=5 id="data_table" border=1>
-<tr>
-<th>Event</th>
-<th>Date</th>
-<th>Notes</th>
-</tr>
-
-<tr id="row1">
-<td id="name_row1">Bahrain</td>
-<td id="country_row1">2023-03-05</td>
-<td id="age_row1">x team has x chance of winning!</td>
-<td>
-<input type="button" id="edit_button1" value="Edit" class="edit" onclick="edit_row('1')">
-<input type="button" id="save_button1" value="Save" class="save" onclick="save_row('1')">
-<input type="button" value="Delete" class="delete" onclick="delete_row('1')">
-</td>
-</tr>
-
-
-<tr>
-<td><input type="text" id="new_name"></td>
-<td><input type="text" id="new_country"></td>
-<td><input type="text" id="new_age"></td>
-<td><input type="button" class="add" onclick="add_row();" value="Add Row"></td>
-</tr>
-
-</table>
-<script type="text/javascript">
-    const races = document.querySelector(".races");
-    fetch("http://ergast.com/api/f1/2021/races.json")
-      .then((data) => data.json())
-      .then((data) => {
-        console.log(data);
-        data.MRData.RaceTable.Races.forEach((data) => {
-          races.innerHTML += `
-      <tr>
-        <td>${data.raceName}</td>
-                <td>${data.date}</td>
         <td></td>
       </tr>`;
         });
       });
   </script>
-</div>
 
 </body>
 </html>
