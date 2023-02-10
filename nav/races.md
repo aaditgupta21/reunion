@@ -34,7 +34,7 @@ ul li::before {
     </div>
 </body>
 
-
+<!-- button to create table -->
 <div lik style="margin: 0 auto; text-align: center">
     <input type="text" id="year" name="year" placeholder="Enter Year Here"
     style="width: 50%;
@@ -43,8 +43,13 @@ ul li::before {
   box-sizing: border-box;
   border: 2px solid #CD2A2A;
   border-radius: 40px;
-  color: gray;">
+  color: black;">
     <button type="submit" onclick="formSubmit()">Get Info</button>
+</div>
+
+<!-- button to delete table -->
+<div lik style="margin: 0 auto; text-align: center">
+    <button type="submit" onclick="deleteTable()">Delete Table</button>
 </div>
 
 <script type="text/javascript">
@@ -75,6 +80,11 @@ ul li::before {
           });
         });
     }
+
+    function deleteTable(id) {
+              document.getElementById(id).style.display = 'block';
+    }
+
   </script>
 
   ---------------------------
