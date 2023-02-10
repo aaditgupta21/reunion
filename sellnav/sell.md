@@ -53,13 +53,13 @@ Sell a Part
             body: JSON.stringify(data)
         };
         fetch(
-          `http://localhost:8085/api/item/newItem`,requestOptions
+          `https://f1-backend.aadit.dev/api/item/newItem`,requestOptions
         )
           .then(response => response.text())
   .then(result => {
     console.log(result);
     if (result == `${partType} listed successfully!`) {
-      window.location.href = "http://localhost:4001/reunion/sellnav/listings";
+      window.location.href = "http://f1-backend.aadit.dev/reunion/sellnav/listings";
     } else {
       alert("Error");
     }
