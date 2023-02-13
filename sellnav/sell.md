@@ -7,8 +7,12 @@
   </head>
 
   <body>
+  
+<div id="title" style="margin-top: -50px">
+{% include sellnav.html %}
+</div>
     <h1 style="text-align: center; font-size: 30px">
-Sell a Part
+    Sell a Part
     </h1>
  <div style="margin: 0 auto; text-align: center">
     <input type="text" id="partType" name="partType" placeholder="Part Type">
