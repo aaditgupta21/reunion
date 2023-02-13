@@ -49,7 +49,7 @@ ul li::before {
 
 <!-- button to delete table -->
 <div lik style="margin: 0 auto; text-align: center">
-    <button type="submit" onclick="deleteTable()">Delete Table</button>
+    <button type="submit" onclick="deleteTable(id)">Delete Table</button>
 </div>
 
 <script type="text/javascript">
@@ -81,7 +81,7 @@ ul li::before {
         });
     }
 
-    function deleteTable() {
+    function deleteTable(id) {
       document.getElementById("Courses").deleteRow(0);   
        }
 
