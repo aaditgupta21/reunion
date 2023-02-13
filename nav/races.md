@@ -82,8 +82,8 @@ ul li::before {
     }
 
     function deleteTable(id) {
-              document.getElementById(id).style.display = 'block';
-    }
+      document.getElementById("Courses").deleteRow(0);   
+       }
 
   </script>
 
@@ -104,7 +104,7 @@ ul li::before {
     <h1 style="text-align: center; font-size: 50px">
       F1 Races
     </h1>
-    <table class="races" border="1" style="position: absolute; top: 100%;left: -15%;">
+    <table id= "raceTable" class="races" border="1" style="position: absolute; top: 100%;left: -15%;">
       <tr>
         <th>Date (year,month,day)</th>
         <th>Round</th>
