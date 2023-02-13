@@ -38,28 +38,21 @@ Sell a Part
         let partType = document.getElementById("partType").value;
         let description = document.getElementById("description").value;
         let initialCost = document.getElementById("initialCost").value;
-        let currentCost = initialCost.value;
+        let currentCost = initialCost;
         let endDate = document.getElementById("endDate").value;
         let weight = document.getElementById("weight").value;
         let imageUrl = document.getElementById("imageUrl").value;
 
-        var myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
-        data = {partType: partType, description: description, endDate: endDate, initialCost: initialCost, currentCost: currentCost, imageUrl: imageUrl, weight: weight}
-        var requestOptions = {
-            method: 'POST',
-            headers: myHeaders,
-            redirect: 'manual',
-            body: JSON.stringify(data)
-        };
+
         fetch(
-          `https://f1-backend.aadit.dev/api/item/newItem`,requestOptions
+          `https://f1-backend.aadit.dev/api/item/newItem?partType=${partType}&description=${description}&currentCost=${currentCost}&initialCost=${initialCost}&endDate=${endDate}&imageUrl=${imageUrl}&weight=${weight}`,{method: "POST", mode: 'cors',cache: 'no-cache', credentials: 'include', headers: {'Content-Type': "application/json"}}
         )
           .then(response => response.text())
   .then(result => {
     console.log(result);
     if (result == `${partType} listed successfully!`) {
-      window.location.href = "http://f1-backend.aadit.dev/reunion/sellnav/listings";
+      alert("Part Listed Successfully!");
+      window.location.href = "https://aaditgupta21.github.io/reunion/sellnav/listings";
     } else {
       alert("Error");
     }
