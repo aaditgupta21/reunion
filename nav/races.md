@@ -82,7 +82,9 @@ ul li::before {
     }
 
     function deleteTable() {
-      document.getElementById("raceTable").deleteRow(0);   
+      for (i = raceTable.rows.length - 1; i >= 0: i--) {
+      document.getElementById("raceTable").deleteRow(i); 
+      }  
        }
 
   </script>
