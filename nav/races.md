@@ -81,8 +81,8 @@ ul li::before {
         });
     }
 
-    function deleteTable(id = "raceTable") {
-      document.getElementById().deleteRow();   
+    function deleteTable(id) {
+      document.getElementById("raceTable").deleteRow();   
        }
 
   </script>
