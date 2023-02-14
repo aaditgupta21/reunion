@@ -1,5 +1,3 @@
-## History of F1
-
 <html lang="en">
 <head>
 <style>
@@ -58,16 +56,21 @@
 
 <body>
 <div class="container my-3">
-    <h1>Write your comments here</h1>
+    <h1>Drive Log</h1>
     <div class="card">
         <div class="card-body">
             <h1 class="card-title">
-                Add a Comment
+                Add a log
             </h1>
             <div class="form-group">
+                <input type="text" id="raceName" name="raceName" placeholder="Race Name" style="background-color: white">
+                <input type="text" id="date" name="date" placeholder="Date" style="background-color: white">
+                <input type="text" id="time" name="time" placeholder="Time" style="background-color: white">
+                <input type="text" id="miles" name="miles" placeholder="Miles" style="background-color: white">
 					<textarea class="form-control" id="addTxt" rows="3">
 					</textarea>
             </div>
+            <button type="submit" onclick="formSubmit()">Submit</button>
             <button onclick="showNotes()" class="btn btn-primary"
                     id="addBtn" style=
                             "background-color:pink; border-color: pink; margin-left:5px; margin-top:5px">
@@ -76,42 +79,122 @@
         </div>
     </div>
     <hr>
-    <h1>Your Notes</h1>
+    <h1>Logs</h1>
     <hr>
 
 <div id="notes" class=
             "container-fluid" style="color: red">
     </div>
 </div>
+<script type="text/javascript">
+    function formSubmit() {
+        let raceName = document.getElementById("raceName").value;
+        let date = document.getElementById("date").value;
+        let time = document.getElementById("time").value;
+        let miles = document.getElementById("miles").value;
+        var myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json");
+            data = {raceName: raceName, date: date, time: time, miles: miles}
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            redirect: 'manual',
+            body: JSON.stringify(data)
+        };
+        fetch(
+            `https://f1-backend.aadit.dev/api/driveLog/newDriveLog`,requestOptions
+            )
+            .then(response => response.text())
+  .then(result => {
+            console.log(result);
+            if (result == `${date} listed successfully`) {
+            document.getElementById(addBtn) += `
+            <div class="noteCard my-2 mx-2 card">
+                        <div class="card-body" >
+                            <h1 class="card-title" >
+                                Log ${index + 1}
+                            </h1>
+                            <p class="card-text" style="color:black">
+                                ${element}
+                            </p>
+                        <button id="${index}" onclick=
+                            "deleteNote(this.id)"
+                            class="btn btn-primary" style="background-color:pink; border-color: pink">
+                            Delete Log
+                        </button>
+                    </div>
+                </div>`;
+            } else {
+            alert("Error occurred during submission, reload and try again.");
+            }
+        })
+        .catch(error => console.log('error', error));
+        }
+</script>
 
-<script>
-    showNotes();
-
-    // If user adds a note, add it to the localStorage
-    let addBtn = document.getElementById("addBtn");
-    addBtn.addEventListener("click", function (e) {
-        let addTxt = document.getElementById("addTxt");
-        let notes = localStorage.getItem("notes");
-
-        if (notes == null) notesObj = [];
-        else notesObj = JSON.parse(notes);
-
-        notesObj.push(addTxt.value);
-        localStorage.setItem("notes", JSON.stringify(notesObj));
-        addTxt.value = "";
-
-        showNotes();
-    });
-
+<!-- <script type="text/javascript">
+    function formSubmit(){
+        let raceName = document.getElementById("raceName").value;
+        let date = document.getElementById("date").value;
+        let time = document.getElementById("time").value;
+        let miles = document.getElementById("miles").value;
+        var myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json");
+            data = {raceName: raceName, date: date, time: time, miles: miles}
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            redirect: 'manual',
+            body: JSON.stringify(data)
+        };
+        fetch(
+            `https://f1-backend.aadit.dev/api/driveLog/newDriveLog`,requestOptions
+            )
+            .then(response => response.text())
+        .then(result => {
+            console.log(result);
+            if (result == `${date} listed successfully`) {
+            window.location.href = "https://aaditgupta21.github.io/reunion/login";
+            document.getElementById(addBtn) += `
+            <div class="noteCard my-2 mx-2 card">
+                        <div class="card-body" >
+                            <h1 class="card-title" >
+                                Log ${index + 1}
+                            </h1>
+                            <p class="card-text" style="color:black">
+                                ${element}
+                            </p>
+                        <button id="${index}" onclick=
+                            "deleteNote(this.id)"
+                            class="btn btn-primary" style="background-color:pink; border-color: pink">
+                            Delete Log
+                        </button>
+                    </div>
+                </div>`;
+            } else {
+            alert("Error occurred during submission, reload and try again.");
+            }
+        })
+        .catch(error => console.log('error', error));
+        }
+        // If user adds a note, add it to the localStorage
+        let addBtn = document.getElementById("addBtn");
+        addBtn.addEventListener("click", function (e) {
+            let addTxt = document.getElementById("addTxt");
+            let notes = document.getElementById("notes").value;
+            if (notes == null) notesObj = [];
+            else notesObj = JSON.parse(notes);
+            notesObj.push(addTxt.value);
+            document.getElementById("notes", JSON.stringify(notesObj)).value;
+            addTxt.value = "";
+            showNotes();
+        });
     // Function to show elements from localStorage
     function showNotes() {
-        let notes = localStorage.getItem("notes");
-
-        if (notes == null) notesObj = [];
+        let notes = document.getElementById("notes").value;
+        if (notes == null) {notesObj = []};
         else notesObj = JSON.parse(notes);
-
         let html = "";
-
         notesObj.forEach(function (element, index) {
             html += `
       <div class="noteCard my-2 mx-2 card">
@@ -130,30 +213,21 @@
 			</div>
 		</div>`;
         });
-
         let notesElm = document.getElementById("notes");
-
         if (notesObj.length != 0) notesElm.innerHTML = html;
         else
             notesElm.innerHTML = `Nothing to show!
 		Use "Add a Note" section above to add notes.`;
     }
-
     // Function to delete a note
     function deleteNote(index) {
         let notes = localStorage.getItem("notes");
-
         if (notes == null) notesObj = [];
         else notesObj = JSON.parse(notes);
-
         notesObj.splice(index, 1);
-
         localStorage.setItem("notes",
             JSON.stringify(notesObj));
-
         showNotes();
     }
-
-</script>
-</body>
+</script> -->
 </html>
