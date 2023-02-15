@@ -44,7 +44,7 @@ ul li::before {
   border: 2px solid #CD2A2A;
   border-radius: 40px;
   color: black;">
-    <button type="submit" onclick="formSubmit()">Get Info</button>
+    <button type="submit" onclick="formsSubmit()">Get Info</button>
 </div>
 
 <!-- button to delete table -->
@@ -53,7 +53,7 @@ ul li::before {
 </div>
 
 <script type="text/javascript">
-    function formSubmit() {
+    function formsSubmit() {
         let year = document.getElementById("year").value;
         console.log(year);
         // data = {year: year}
