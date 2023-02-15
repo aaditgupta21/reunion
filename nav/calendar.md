@@ -46,7 +46,7 @@
       border-width: 2px; 
       width: 98%;
       length: 100%;
-      font-family: sans-sarif;
+      font-family: sans-serif;
       padding: 0.375rem 0.75rem;
       font-size: 1rem;
       font-weight: 400;
@@ -148,7 +148,7 @@
           races.innerHTML += `
       <tr>
         <td>${data.raceName}</td>
-                <td>${data.date}</td>
+        <td>${data.date}</td>
         <td></td>
         <td></td>
       </tr>`;
