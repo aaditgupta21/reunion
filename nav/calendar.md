@@ -68,49 +68,7 @@
 <h1 style="text-align: center; font-size: 50px">
 2023 Calendar
 </h1>
-<script>
-   // Function to show elements from localStorage
-   function showNotes() {
-       let notes = localStorage.getItem("notes");
-       if (notes == null) notesObj = [];
-       else notesObj = JSON.parse(notes);
-       let html = "";
-       notesObj.forEach(function (element, index) {
-           html += `
-     <div class="noteCard my-2 mx-2 card">
-       <div class="card-body" >
-         <h1 class="card-title" >
-           Comment ${index + 1}
-         </h1>
-         <p class="card-text" style="color:black">
-           ${element}
-         </p>
-       <button id="${index}" onclick=
-         "deleteNote(this.id)"
-         class="btn btn-primary" style="background-color:pink; border-color: pink">
-         Delete Comment
-       </button>
-     </div>
-   </div>`;
-       });
-       let notesElm = document.getElementById("notes");
-       if (notesObj.length != 0) notesElm.innerHTML = html;
-       else
-           notesElm.innerHTML = `Nothing to show!
-   Use "Add a Note" section above to add notes.`;
-   }
-   // Function to delete a note
-   function deleteNote(index) {
-       let notes = localStorage.getItem("notes");
-       if (notes == null) notesObj = [];
-       else notesObj = JSON.parse(notes);
-       notesObj.splice(index, 1);
-       localStorage.setItem("notes",
-           JSON.stringify(notesObj));
-       showNotes();
-   }
 
-</script>
 
 <table class="races" border="1" align='center' cellspacing=2 cellpadding=5 id="data_table" border=1>
   <tr>
