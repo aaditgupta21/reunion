@@ -26,13 +26,20 @@ Login
 
         fetch(
           `https://f1-backend.aadit.dev/authenticate`, {method: "POST", mode: 'cors',cache: 'no-cache', credentials: 'include', headers: {'Content-Type': "application/json"}, body: JSON.stringify(data)})
+          .then((response) => {
+            console.log(response);
+            return response.json();
+          })
           .then((data) => {
             console.log(data);
-            if (data.status == 200) {
-              window.location.href = "https://aaditgupta21.github.io/reunion/nav/races";
-            } else {
-              alert("Invalid credentials");
-            }
+            console.log(data.data);
+            localStorage.setItem('ID', data.data);
+            console.log('Data saved in sessionStorage');
+            // if (data.status == 200) {
+            //   window.location.href = "https://aaditgupta21.github.io/reunion/";
+            // } else {
+            //   alert("Invalid credentials");
+            // }
           });
       }
 </script>
