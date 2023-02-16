@@ -84,10 +84,10 @@ ul li::before {
         .then((data) => data.json())
         .then((data) => {
           console.log(data);
-          data.MRData.RaceTable.Races.Results.Constructor.forEach((data) => {
+          data.MRData.RaceTable.Races.Results.forEach((data) => {
             races.innerHTML += `
         <tr>
-          <td>${data.constructorId}</td>
+          <td>${data.Constructor.constructorId}</td>
         </tr>`;
           });
         });
