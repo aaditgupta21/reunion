@@ -86,7 +86,7 @@ ul li::before {
         .then((data) => {
           console.log(data);
           data.MRData.RaceTable.Races.forEach((data) => {
-            races.innerHTML += `
+            winner.innerHTML += `
         <tr>
           <td>${data.Results.number}</td>
         </tr>`;
