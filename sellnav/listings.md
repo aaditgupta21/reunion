@@ -8,8 +8,11 @@
         <th>Id</th>
         <th>Part Type</th>
         <th>Description</th>
+        <th>Initial Cost</th>
         <th>Starting Cost</th>
+        <th>End Date</th>
         <th>Weight</th>
+        <th>Image Url</th>
       </tr>
     </thead>
     <tbody></tbody>
@@ -21,7 +24,7 @@
   const itemContainer = document.getElementById("items");
   const options = {
       method: 'GET', // *GET, POST, PUT, DELETE, etc.
-      mode: 'cors', // no-cors, *cors, same-origin
+      mode: 'no-cors', // no-cors, *cors, same-origin
       cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
       credentials: 'omit', // include, *same-origin, omit
       headers: {
@@ -30,7 +33,7 @@
       },
   };
   
-    function listParts() {
+    function listItems() {
     // fetch the API
     fetch("https://f1-backend.aadit.dev/api/item/", options)
       // response is a RESTful "promise" on any successful fetch
@@ -47,7 +50,8 @@
             return;
         }
         // valid response will have json data
-        response.json().then(data => {
+        response.json()
+        .then(data => {
             for (const row of data) {
 
               const tr = document.createElement("tr");
@@ -55,20 +59,29 @@
               const id = document.createElement("td");
               const partType = document.createElement("td");
               const description = document.createElement("td");
-              const startingCost = document.createElement("td");
+              const initialCost = document.createElement("td");
+              const currentCost = document.createElement("td");
               const weight = document.createElement("td");
+              const endDate = document.createElement("td");
+              const imageUrl = document.createElement("td");
 
               id.innerHTML = row.id;
               partType.innerHTML = row.partType;
               description.innerHTML = row.description;
-              startingCost.innerHTML = row.startingCost;
-              height.weight = row.weight;
+              initialCost.innerHTML = row.initialCost;
+              currentCost.innerHTML = row.currentCost;
+              weight.innerHTML = row.weight;
+              endDate.innerHTML = row.endDate;
+              imageUrl.innerHTML = row.imageUrl;
 
               tr.appendChild(id);
               tr.appendChild(partType);
               tr.appendChild(description);
-              tr.appendChild(startingCost);
+              tr.appendChild(initialCost);
+              tr.appendChild(currentCost);
               tr.appendChild(weight);
+              tr.appendChild(endDate);
+              tr.appendChild(imageUrl);
 
               itemContainer.appendChild(tr);
             }
@@ -76,5 +89,5 @@
     })
   }
 
-  listParts();
+  listItems();
 </script>
