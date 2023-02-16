@@ -3,7 +3,7 @@
 
   <meta charset="utf-8" />
   <title>F1 Races</title>
-  <meta name="description" content="F1 Races and their Information." />
+  <meta event="description" content="F1 Races and their Information." />
   <style>
     table.center {
       margin-left: auto;
@@ -62,7 +62,22 @@
   </style>
 </head>
 
-<script type="text/javascript" src="table_script.js"></script>
+<script type="text/javascript">
+function add_row()
+{
+ var new_event=document.getElementById("new_event").value;
+ var new_date=document.getElementById("new_date").value;
+ var new_note=document.getElementById("new_note").value;
+	
+ var table=document.getElementById("data_table");
+ var table_len=(table.rows.length)-1;
+ var row = table.insertRow(table_len).outerHTML="<tr id='row"+table_len+"'><td id='event_row"+table_len+"'>"+new_event+"</td><td id='date_row"+table_len+"'>"+new_date+"</td><td id='note_row"+table_len+"'>"+new_note+"</td><td><input type='button' id='edit_button"+table_len+"' value='Edit' class='edit' onclick='edit_row("+table_len+")'> <input type='button' id='save_button"+table_len+"' value='Save' class='save' onclick='save_row("+table_len+")'> <input type='button' value='Delete' class='delete' onclick='delete_row("+table_len+")'></td></tr>";
+
+ document.getElementById("new_event").value="";
+ document.getElementById("new_date").value="";
+ document.getElementById("new_note").value="";
+ }
+</script>
 
 <body>
 <h1 style="text-align: center; font-size: 50px">
@@ -75,24 +90,21 @@
     <th>Event</th>
     <th>Date</th>
     <th>Notes</th>
-    <th>Edit</th>
+    <th>Add</th>
   </tr>
 
 <tr>
-<td><input type="text" id="new_name"></td>
-<td><input type="text" id="new_country"></td>
-<td><input type="text" id="new_age"></td>
+<td><input type="text" id="new_event"></td>
+<td><input type="text" id="new_date"></td>
+<td><input type="text" id="new_note"></td>
 <td><input type="button" class="add" onclick="add_row();" value="Add Row"></td>
 </tr>
 
 <tr id="row1">
-<td id="name_row1">Bahrain</td>
-<td id="country_row1">2023-03-05</td>
-<td id="age_row1">x team has x chance of winning!</td>
+<td id="event_row1">Bahrain</td>
+<td id="date_row1">2023-03-05</td>
+<td id="note_row1">x team is winning!!!</td>
 <td>
-<input type="button" id="edit_button1" value="Edit" class="edit" onclick="edit_row('1')">
-<input type="button" id="save_button1" value="Save" class="save" onclick="save_row('1')">
-<input type="button" value="Delete" class="delete" onclick="delete_row('1')">
 </td>
 </tr>
 </table>
@@ -113,6 +125,69 @@
         });
       });
   </script>
+
+<!-- API Table  -->
+  <table id = "items">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Event</th>
+        <th>Date</th>
+        <th>Note</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+<script>
+  const itemContainer = document.getElementById("items");
+    function listItems() {
+    // fetch the API
+    fetch("http://localhost:8085/api/calendar/", {method: "GET", mode: 'cors',cache: 'no-cache', credentials: 'include', headers: {'Content-Type': "application/json"}})
+      // response is a RESTful "promise" on any successful fetch
+      .then(response => {
+        // check for response errors
+        if (response.status !== 200) {
+            const errorMsg = 'Database response error: ' + response.status;
+            console.log(errorMsg);
+            const tr = document.createElement("tr");
+            const td = document.createElement("td");
+            td.innerHTML = errorMsg;
+            tr.appendChild(td);
+            itemContainer.appendChild(tr);
+            return;
+        }
+        // valid response will have json data
+        response.json()
+        .then(data => {
+            for (const row of data) {
+
+              const tr = document.createElement("tr");
+
+              const id = document.createElement("td");
+              const event = document.createElement("td");
+              const dateOfEvent = document.createElement("td");
+              const note = document.createElement("td");
+
+              id.innerHTML = row.id;
+              event.innerHTML = row.event;
+              dateOfEvent.innerHTML = row.dateOfEvent;
+              note.innerHTML = row.note;
+
+              tr.appendChild(id);
+              tr.appendChild(event);
+              tr.appendChild(dateOfEvent);
+              tr.appendChild(note);
+
+              itemContainer.appendChild(tr);
+            }
+        })
+    })
+  }
+
+  listItems();
+</script>
+
 
 </body>
 </html>
