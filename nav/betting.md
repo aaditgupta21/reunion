@@ -118,7 +118,7 @@ p{
 .items-collection label.btn-default{
     width:90%;
     border:1px solid #305891;
-    margin:5px; 
+    margin:5px;
     border-radius: 17px;
     color: #305891;
 }
@@ -136,7 +136,7 @@ p{
 
 <h1>Betting
 <span>
-<a style="right:175px; position: absolute;">Coins<span><a class="rcorners1" id="coins" style="margin-left:5px">12345678</a></span></a>
+<a style="right:175px; position: absolute;">Coins<span><a class="rcorners1" id="coins" style="margin-left:5px"></a></span></a>
 
 </span>
 </h1>
@@ -459,17 +459,13 @@ p{
         showSlides(slideIndex = n);
     }
 
-    function showF1Coins(n) {
-      fetch("https://f1-backend.aadit.dev/api/user/" + year, {method: "GET", mode: 'cors',cache: 'default', credentials: 'include', headers: {'Content-Type': "application/json"}})
-        .then((data) => data.json())
-        .then((data) => {
-
-        localstorage.get(item);
-        })
-      
-      const f1coins;
-      document.getElementById('coins').innerHTML = f1coins;
-    }
+    let bruh = localStorage.getItem("ID");
+    fetch("https://f1-backend.aadit.dev/api/user/coins/" + bruh, {method: "GET", mode: 'cors',cache: 'default', credentials: 'include', headers: {'Content-Type': "application/json"}})
+      .then((data) => data.json())
+      .then((data) => {
+        console.log(data);
+        document.getElementById("coins").innerHTML = data;
+      })
 
     function showSlides(n) {
         let i;
@@ -496,7 +492,7 @@ p{
         let num = slides[i]+1;
         let coins = document.getElementById("bet").value;
         if (num == 1){
-          
+
         }
 
         var myHeaders = new Headers();
