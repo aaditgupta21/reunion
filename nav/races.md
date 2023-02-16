@@ -59,6 +59,7 @@ ul li::before {
         // data = {year: year}
         // console.log(data);
         console.log("https://f1-backend.aadit.dev/api/race/races/" + year);
+        console.log("https://f1-backend.aadit.dev/api/race/races/winner/" + year);
 
         const races = document.querySelector(".races");
       // https://f1-backend.aadit.dev/api/race/races?year=2021
