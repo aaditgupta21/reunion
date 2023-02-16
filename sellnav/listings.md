@@ -35,7 +35,7 @@
   
     function listItems() {
     // fetch the API
-    fetch("https://f1-backend.aadit.dev/api/item/", {method: "POST", mode: 'cors',cache: 'no-cache', credentials: 'include', headers: {'Content-Type': "application/json"}})
+    fetch("https://f1-backend.aadit.dev/api/item/", {method: "GET", mode: 'cors',cache: 'no-cache', credentials: 'include', headers: {'Content-Type': "application/json"}})
       // response is a RESTful "promise" on any successful fetch
       .then(response => {
         // check for response errors
