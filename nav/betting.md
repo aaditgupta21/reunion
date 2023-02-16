@@ -136,7 +136,7 @@ p{
 
 <h1>Betting
 <span>
-<a style="right:175px; position: absolute;">Coins<span><a class="rcorners1" id="coins" style="margin-left:5px">10012309120391230</a></span></a>
+<a style="right:175px; position: absolute;">Coins<span><a class="rcorners1" id="coins" style="margin-left:5px">12345678</a></span></a>
 
 </span>
 </h1>
@@ -422,23 +422,26 @@ p{
   </div>
 
   <!-- Next and previous buttons -->
-  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-  <a class="next" onclick="plusSlides(1)">&#10095;</a>
-  <br>
-  <br>
-    <h4 style="background-color: transparent; color: white">Make A Bet</h4>
-        <a style="width:100%; height:10%; background-color: transparent; margin-left:0; color:white">
-            <input type="number"
+
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+<br>
+<br>
+
+<h4 style="background-color: transparent; color: white">Make A Bet</h4>
+<a style="width:100%; height:10%; background-color: transparent; margin-left:0; color:white">
+<input type="number"
                 name="bet"
                 id="bet"
                 placeholder="Place Bet Here"
                 style="width:100%; height:10%; margin-left: 0; left:0; background-color: white;padding: 5px 5px;margin: 0px 0; box-sizing: border-box; color: black;  border-color: red; border-radius: 10px"
             >
-        </a>
-    <br>
-    <a style="background-color: transparent">
-        <input value="Submit" type="submit" class="button" onclick="formSubmit()" style="padding: 10px; margin:0; margin-top: 10px">
-    </a>
+</a>
+<br>
+<a style="background-color: transparent">
+<input value="Submit" type="submit" class="button" onclick="formSubmit()" style="padding: 10px; margin:0; margin-top: 10px">
+</a>
+
 <div>
 <a id="updcoin"></a>
 
@@ -454,6 +457,18 @@ p{
     // Thumbnail image controls
     function currentSlide(n) {
         showSlides(slideIndex = n);
+    }
+
+    function showF1Coins(n) {
+      fetch("https://f1-backend.aadit.dev/api/user/" + year, {method: "GET", mode: 'cors',cache: 'default', credentials: 'include', headers: {'Content-Type': "application/json"}})
+        .then((data) => data.json())
+        .then((data) => {
+
+        localstorage.get(item);
+        })
+      
+      const f1coins;
+      document.getElementById('coins').innerHTML = f1coins;
     }
 
     function showSlides(n) {
