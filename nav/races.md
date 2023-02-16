@@ -77,7 +77,6 @@ ul li::before {
             <td>${data.Circuit.circuitName}</td>
             <td>${data.Circuit.Location.country}</td>
             <td>${data.Circuit.Location.locality}</td>
-            <td></td>
         </tr>`;
           });
         });
