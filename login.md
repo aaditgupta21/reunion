@@ -35,11 +35,11 @@ Login
             console.log(data.data);
             localStorage.setItem('ID', data.data);
             console.log('Data saved in sessionStorage');
-            // if (data.status == 200) {
-            //   window.location.href = "https://aaditgupta21.github.io/reunion/";
-            // } else {
-            //   alert("Invalid credentials");
-            // }
+            if (data.status == 200) {
+              window.location.href = "https://aaditgupta21.github.io/reunion/";
+            } else {
+              alert("Invalid credentials");
+            }
           });
       }
 </script>
