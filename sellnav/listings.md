@@ -22,20 +22,20 @@
 
 <script>
   const itemContainer = document.getElementById("items");
-  const options = {
-      method: 'GET', // *GET, POST, PUT, DELETE, etc.
-      mode: 'no-cors', // no-cors, *cors, same-origin
-      cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
-      credentials: 'omit', // include, *same-origin, omit
-      headers: {
-      'Content-Type': 'application/json'
-      // 'Content-Type': 'application/x-www-form-urlencoded',
-      },
-  };
+//   const options = {
+//       method: 'GET', // *GET, POST, PUT, DELETE, etc.
+//       mode: 'no-cors', // no-cors, *cors, same-origin
+//       cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
+//       credentials: 'omit', // include, *same-origin, omit
+//       headers: {
+//       'Content-Type': 'application/json'
+//       // 'Content-Type': 'application/x-www-form-urlencoded',
+//       },
+//   };
   
     function listItems() {
     // fetch the API
-    fetch("https://f1-backend.aadit.dev/api/item/", options)
+    fetch("https://f1-backend.aadit.dev/api/item/", {method: "POST", mode: 'cors',cache: 'no-cache', credentials: 'include', headers: {'Content-Type': "application/json"}})
       // response is a RESTful "promise" on any successful fetch
       .then(response => {
         // check for response errors
