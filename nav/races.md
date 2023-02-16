@@ -59,6 +59,7 @@ ul li::before {
         // data = {year: year}
         // console.log(data);
         console.log("https://f1-backend.aadit.dev/api/race/races/" + year);
+        console.log("https://f1-backend.aadit.dev/api/race/races/winner/" + year);
 
         const races = document.querySelector(".races");
       // https://f1-backend.aadit.dev/api/race/races?year=2021
@@ -76,6 +77,18 @@ ul li::before {
             <td>${data.Circuit.circuitName}</td>
             <td>${data.Circuit.Location.country}</td>
             <td>${data.Circuit.Location.locality}</td>
+        </tr>`;
+          });
+        });
+
+        fetch("https://f1-backend.aadit.dev/api/race/races/winner/" + year, {method: "GET", mode: 'cors',cache: 'default', credentials: 'include', headers: {'Content-Type': "application/json"}})
+        .then((data) => data.json())
+        .then((data) => {
+          console.log(data);
+          data.MRData.RaceTable.Races.forEach((data) => {
+            races.innerHTML += `
+        <tr>
+          <td>${data.Results.number}</td>
         </tr>`;
           });
         });
