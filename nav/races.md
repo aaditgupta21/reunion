@@ -115,6 +115,7 @@ ul li::before {
         <th>Circuit Name</th>
         <th>Country</th>
         <th>Locality</th>
+        <th>Winner</th>
       </tr>
     </table>
     <script type="text/javascript">
