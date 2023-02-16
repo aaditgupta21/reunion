@@ -87,7 +87,7 @@ ul li::before {
           data.MRData.RaceTable.Races.forEach((data) => {
             races.innerHTML += `
         <tr>
-          <td>${data.Results.Constructor.constructorId}</td>
+          <td>${data.Results.number}</td>
         </tr>`;
           });
         });
