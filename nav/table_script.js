@@ -48,4 +48,28 @@ function add_row()
  document.getElementById("new_name").value="";
  document.getElementById("new_country").value="";
  document.getElementById("new_age").value="";
-}
+
+
+ var url = "localhost:8085/api/calendar/newCalendar";
+ const options = {
+    method: 'GET',
+    mode: 'cors',
+    cache: 'default',
+    credentials: 'include',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+ };
+data = {event: new_name, notes: new_country, dateOfEvent: new_age}
+var requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    redirect: 'manual',
+    body: JSON.stringify(data)
+  };
+  fetch(
+    `localhost:8085/api/calendar/newCalendar`,requestOptions
+  )
+    .then(response => response.text())
+
+ }
