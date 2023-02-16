@@ -2,92 +2,23 @@
 {% include sellnav.html %}
 </div>
 
-<div style="margin: 0 auto; text-align: center">
-  
-
-  <p id="bruh"></p>
-  <table id = "users">
+<table id = "items">
     <thead>
       <tr>
-        <th>id</th>
-        <th>email</th>
-        <th>password</th>
-        <th>name</th>
-        <th>height</th>
-        <th>weight</th>
-        <th>gender</th>
-        <th>age</th>
-        <th>stepgoal</th>
+        <th>Id</th>
+        <th>Part Type</th>
+        <th>Description</th>
+        <th>Starting Cost</th>
+        <th>Weight</th>
       </tr>
     </thead>
     <tbody></tbody>
   </table>
-
-  <p id="bruh"></p>
-  <table id = "stepLogReport">
-    <thead>
-      <tr>
-        <th>id</th>
-        <th>stepGoal</th>
-        <th>totalSteps</th>
-        <th>daysRecorded</th>
-        <th>activeDays</th>
-        <th>caloriesConsumed</th>
-        <th>caloriesBurnt</th>
-        <th>netCalories</th>
-        <th>netWeightReport</th>
-      </tr>
-    </thead>
-    <tbody></tbody>
-  </table>
-
-  <p id="bruh"></p>
-  <table id = "stepLogStats">
-    <thead>
-      <tr>
-        <th>id</th>
-        <th>date</th>
-        <th>steps</th>
-        <th>calories</th>
-      </tr>
-    </thead>
-    <tbody></tbody>
-  </table>
-<div>
+  <!-- pass in url here, make a js variable, pls do this nathan 
+            make buy -->
 
 <script>
-  // on submit, api call sends json for updated entry to be sent
-      function submitform(event) {
-        event.preventDefault();
-
-        // forms data
-        const data = new FormData(event.target);
-
-        const queryString = new URLSearchParams(data).toString();
-
-        fetch("https://f1-backend.aadit.dev/api/item/post/?" + queryString, {
-          method: "POST",
-          mode: "no-cors",
-          headers: {
-            "Content-Type": "application/json"
-          }
-        })
-
-        const form = document.getElementById("newUserForm");
-        form.reset();
-      }
-
-      const form = document.getElementById("newUserForm");
-      form.addEventListener("submit", submitform);
-
-  // prepare HTML user container for new output
-  const userContainer = document.getElementById("users");
-  const stepTrackerContainer = document.getElementById("steptracker");
-
-  // prepare fetch options
-  const url = "https://f1-backend.aadit.dev/api/item/";
-
-  // not needed
+  const itemContainer = document.getElementById("items");
   const options = {
       method: 'GET', // *GET, POST, PUT, DELETE, etc.
       mode: 'cors', // no-cors, *cors, same-origin
@@ -98,23 +29,10 @@
       // 'Content-Type': 'application/x-www-form-urlencoded',
       },
   };
-
-  // not needed
-  const putOptions = {
-      method: 'PUT', // *GET, POST, PUT, DELETE, etc.
-      mode: 'cors', // no-cors, *cors, same-origin
-      cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
-      credentials: 'omit', // include, *same-origin, omit
-      headers: {
-      'Content-Type': 'application/json'
-      // 'Content-Type': 'application/x-www-form-urlencoded',
-      },
-  };
-
-  // for nicky follow this example
-  function listIDS() {
+  
+    function listParts() {
     // fetch the API
-    fetch(url, options)
+    fetch("https://f1-backend.aadit.dev/api/item/", options)
       // response is a RESTful "promise" on any successful fetch
       .then(response => {
         // check for response errors
@@ -125,7 +43,7 @@
             const td = document.createElement("td");
             td.innerHTML = errorMsg;
             tr.appendChild(td);
-            userContainer.appendChild(tr);
+            itemContainer.appendChild(tr);
             return;
         }
         // valid response will have json data
@@ -134,32 +52,29 @@
 
               const tr = document.createElement("tr");
 
+              const id = document.createElement("td");
               const partType = document.createElement("td");
               const description = document.createElement("td");
-              const cost = document.createElement("td");
+              const startingCost = document.createElement("td");
               const weight = document.createElement("td");
-              const date = document.createElement("td");
-              const imageUrl = document.createElement("td");
 
-              partType.innerHTML = row.id;
-              description.innerHTML = row.email;
-              cost.innerHTML = row.password;
-              weight.innerHTML = row.weight;
-              date.innerHTML = row.gender;
-              imageUrl.innerHTML = row.age;
+              id.innerHTML = row.id;
+              partType.innerHTML = row.partType;
+              description.innerHTML = row.description;
+              startingCost.innerHTML = row.startingCost;
+              height.weight = row.weight;
 
+              tr.appendChild(id);
               tr.appendChild(partType);
               tr.appendChild(description);
-              tr.appendChild(cost);
+              tr.appendChild(startingCost);
               tr.appendChild(weight);
-              tr.appendChild(date);
-              tr.appendChild(imageUrl);
 
-              userContainer.appendChild(tr);
+              itemContainer.appendChild(tr);
             }
         })
     })
   }
 
-  listIDS();
+  listParts();
 </script>
