@@ -79,6 +79,18 @@ ul li::before {
         </tr>`;
           });
         });
+
+        fetch("https://f1-backend.aadit.dev/api/race/races/winner/" + year, {method: "GET", mode: 'cors',cache: 'default', credentials: 'include', headers: {'Content-Type': "application/json"}})
+        .then((data) => data.json())
+        .then((data) => {
+          console.log(data);
+          data.MRData.RaceTable.Races.Results.Constructor.forEach((data) => {
+            races.innerHTML += `
+        <tr>
+          <td>${data.constructorId}</td>
+        </tr>`;
+          });
+        });
     }
 
     function deleteTable() {
