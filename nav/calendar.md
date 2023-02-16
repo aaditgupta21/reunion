@@ -111,5 +111,79 @@
       });
   </script>
 
+  <table id = "items">
+    <thead>
+      <tr>
+        <th>Event</th>
+        <th>Date</th>
+        <th>Note</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+  <!-- pass in url here, make a js variable, pls do this nathan 
+            make buy -->
+
+<script>
+  const itemContainer = document.getElementById("items");
+//   const options = {
+//       method: 'GET', // *GET, POST, PUT, DELETE, etc.
+//       mode: 'no-cors', // no-cors, *cors, same-origin
+//       cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
+//       credentials: 'omit', // include, *same-origin, omit
+//       headers: {
+//       'Content-Type': 'application/json'
+//       // 'Content-Type': 'application/x-www-form-urlencoded',
+//       },
+//   };
+  
+    function listItems() {
+    // fetch the API
+    fetch("https://f1-backend.aadit.dev/api/calendar/", {method: "GET", mode: 'cors',cache: 'no-cache', credentials: 'include', headers: {'Content-Type': "application/json"}})
+      // response is a RESTful "promise" on any successful fetch
+      .then(response => {
+        // check for response errors
+        if (response.status !== 200) {
+            const errorMsg = 'Database response error: ' + response.status;
+            console.log(errorMsg);
+            const tr = document.createElement("tr");
+            const td = document.createElement("td");
+            td.innerHTML = errorMsg;
+            tr.appendChild(td);
+            itemContainer.appendChild(tr);
+            return;
+        }
+        // valid response will have json data
+        response.json()
+        .then(data => {
+            for (const row of data) {
+
+              const tr = document.createElement("tr");
+
+              const id = document.createElement("td");
+              const event = document.createElement("td");
+              const dateOfEvent = document.createElement("td");
+              const note = document.createElement("td");
+
+              id.innerHTML = row.id;
+              event.innerHTML = row.event;
+              dateOfEvent.innerHTML = row.dateOfEvent;
+              note.innerHTML = row.note;
+
+              tr.appendChild(id);
+              tr.appendChild(event);
+              tr.appendChild(dateOfEvent);
+              tr.appendChild(note);
+
+              itemContainer.appendChild(tr);
+            }
+        })
+    })
+  }
+
+  listItems();
+</script>
+
+
 </body>
 </html>
