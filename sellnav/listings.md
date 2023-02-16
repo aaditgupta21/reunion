@@ -10,8 +10,8 @@
         <th>Description</th>
         <th>Initial Cost</th>
         <th>Starting Cost</th>
-        <th>End Date</th>
         <th>Weight</th>
+        <th>End Date</th>
         <th>Image Url</th>
       </tr>
     </thead>

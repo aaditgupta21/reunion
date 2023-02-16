@@ -129,6 +129,7 @@ ul li::before {
         <th>Country</th>
         <th>Locality</th>
         <th>Winner</th>
+        <th>aadit</th>
       </tr>
     </table>
     <script type="text/javascript">
