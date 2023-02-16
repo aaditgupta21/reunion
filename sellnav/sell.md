@@ -17,8 +17,8 @@
  <div style="margin: 0 auto; text-align: center">
     <input type="text" id="partType" name="partType" placeholder="Part Type">
     <input type="text" id="description" name="description" placeholder="Description">
-    <input type="text" id="initialCost" name="initialCost" placeholder="Starting Cost">
-    <input type="text" id="weight" name="weight" placeholder="Weight of Item">
+    <input type="text" id="initialCost" name="initialCost" placeholder="Starting Cost (In # of USD)">
+    <input type="text" id="weight" name="weight" placeholder="Weight of Item (In # of LBs)">
     <input type="date" id="endDate" name="endDate" placeholder="MM-dd-yyyy" style="width: 50%;
   padding: 5px 5px;
   margin: 8px 0;

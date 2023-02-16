@@ -10,8 +10,8 @@
         <th>Description</th>
         <th>Initial Cost</th>
         <th>Starting Cost</th>
-        <th>End Date</th>
         <th>Weight</th>
+        <th>End Date</th>
         <th>Image Url</th>
       </tr>
     </thead>
@@ -59,7 +59,7 @@
               const id = document.createElement("td");
               const partType = document.createElement("td");
               const description = document.createElement("td");
-              const initialCost = document.createElement("td");
+              const initialCost = document.createElement("td").slice(0,10);
               const currentCost = document.createElement("td");
               const weight = document.createElement("td");
               const endDate = document.createElement("td");
