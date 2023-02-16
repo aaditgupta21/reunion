@@ -62,7 +62,22 @@
   </style>
 </head>
 
-<script type="text/javascript" src="table_script.js"></script>
+<script type="text/javascript">
+function add_row()
+{
+ var new_event=document.getElementById("new_event").value;
+ var new_date=document.getElementById("new_date").value;
+ var new_note=document.getElementById("new_note").value;
+	
+ var table=document.getElementById("data_table");
+ var table_len=(table.rows.length)-1;
+ var row = table.insertRow(table_len).outerHTML="<tr id='row"+table_len+"'><td id='event_row"+table_len+"'>"+new_event+"</td><td id='date_row"+table_len+"'>"+new_date+"</td><td id='note_row"+table_len+"'>"+new_note+"</td><td><input type='button' id='edit_button"+table_len+"' value='Edit' class='edit' onclick='edit_row("+table_len+")'> <input type='button' id='save_button"+table_len+"' value='Save' class='save' onclick='save_row("+table_len+")'> <input type='button' value='Delete' class='delete' onclick='delete_row("+table_len+")'></td></tr>";
+
+ document.getElementById("new_event").value="";
+ document.getElementById("new_date").value="";
+ document.getElementById("new_note").value="";
+ }
+</script>
 
 <body>
 <h1 style="text-align: center; font-size: 50px">
@@ -111,9 +126,11 @@
       });
   </script>
 
+<!-- API Table  -->
   <table id = "items">
     <thead>
       <tr>
+        <th>ID</th>
         <th>Event</th>
         <th>Date</th>
         <th>Note</th>
@@ -121,25 +138,12 @@
     </thead>
     <tbody></tbody>
   </table>
-  <!-- pass in url here, make a js variable, pls do this nathan 
-            make buy -->
 
 <script>
   const itemContainer = document.getElementById("items");
-//   const options = {
-//       method: 'GET', // *GET, POST, PUT, DELETE, etc.
-//       mode: 'no-cors', // no-cors, *cors, same-origin
-//       cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
-//       credentials: 'omit', // include, *same-origin, omit
-//       headers: {
-//       'Content-Type': 'application/json'
-//       // 'Content-Type': 'application/x-www-form-urlencoded',
-//       },
-//   };
-  
     function listItems() {
     // fetch the API
-    fetch("https://f1-backend.aadit.dev/api/calendar/", {method: "GET", mode: 'cors',cache: 'no-cache', credentials: 'include', headers: {'Content-Type': "application/json"}})
+    fetch("http://localhost:8085/api/calendar/", {method: "GET", mode: 'cors',cache: 'no-cache', credentials: 'include', headers: {'Content-Type': "application/json"}})
       // response is a RESTful "promise" on any successful fetch
       .then(response => {
         // check for response errors
