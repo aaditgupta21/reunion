@@ -531,9 +531,9 @@ p{
       }
     }
 
-    const f1coins = 0;
-    const raceName = "";
-    const raceSeason = "";
+    let f1coins = 0;
+    let raceName = "";
+    let raceSeason = "";
 
     function setBetFields() {
       f1coins = document.getElementById("bet").value;
