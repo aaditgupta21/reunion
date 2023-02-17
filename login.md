@@ -37,7 +37,7 @@ Login
             console.log('Data saved in sessionStorage');
             console.log(data.status);
             if (data.data === parseInt(data.data, 10)) {
-              window.location.href = "https://aaditgupta21.github.io/reunion/";
+              window.location.href = "https://aaditgupta21.github.io/reunion/nav/about";
             } else {
               alert("Invalid credentials");
             }

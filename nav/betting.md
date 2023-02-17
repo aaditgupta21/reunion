@@ -564,7 +564,7 @@ p{
         };
 
          fetch(
-          `https://localhost:8085/api/user/makeBet`,requestOptions
+          `https://f1-backend.aadit.dev/api/user/makeBet`,requestOptions
         )
           .then(response => response.text())
         .then(result => {
