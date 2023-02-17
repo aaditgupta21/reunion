@@ -1,10 +1,3 @@
-<script>
-  let bruh = localStorage.getItem("ID");
-  if(bruh = undefined){
-    window.location.href = "https://aaditgupta21.github.io/reunion/nav/login";
-  }
-</script>
-
 <style>
     * {
   box-sizing: border-box;
@@ -456,6 +449,11 @@ p{
 <a id="updcoin"></a>
 
 <script>
+    let bruh = localStorage.getItem("ID");
+    if(bruh = undefined){
+      window.location.href = "https://aaditgupta21.github.io/reunion/nav/login";
+    }
+    
     let slideIndex = 1;
     showSlides(slideIndex);
 
