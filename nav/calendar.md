@@ -87,7 +87,7 @@ function add_row(){
                 body: JSON.stringify(data)
             };
             fetch(
-                `http://localhost:8085/api/calendar/newCalendar`, options
+                `https://f1-backend.aadit.dev/api/calendar/newCalendar`, options
                 )
                 .then(response => response.text())
 
@@ -147,7 +147,7 @@ function add_row(){
   const itemContainer = document.getElementById("data_table");
     function listEvents() {
     // fetch the API
-    fetch("http://localhost:8085/api/calendar/", {method: "GET", mode: 'cors',cache: 'no-cache', credentials: 'include', headers: {'Content-Type': "application/json"}})
+    fetch("https://f1-backend.aadit.dev/api/calendar/", {method: "GET", mode: 'cors',cache: 'no-cache', credentials: 'include', headers: {'Content-Type': "application/json"}})
       // response is a RESTful "promise" on any successful fetch
       .then(response => {
         // check for response errors
