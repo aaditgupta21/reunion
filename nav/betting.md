@@ -535,12 +535,12 @@ p{
       }
     }
 
-    let f1coins = 0;
+    let f1coins = 0.0;
     let raceName = "";
     let raceSeason = "";
 
     function setBetFields() {
-      f1coins = document.getElementById("bet").value;
+      f1coins = parseFloat(document.getElementById("bet").value);
       raceName = document.getElementById("raceName").value;
       raceSeason = document.getElementById("raceSeason").value;
     }
