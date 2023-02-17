@@ -36,7 +36,7 @@ Login
             localStorage.setItem('ID', data.data);
             console.log('Data saved in sessionStorage');
             console.log(data.status);
-            if (data.status == 200) {
+            if (data.data === parseInt(data.data, 10)) {
               window.location.href = "https://aaditgupta21.github.io/reunion/";
             } else {
               alert("Invalid credentials");
