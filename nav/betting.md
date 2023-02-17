@@ -549,7 +549,7 @@ p{
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
 
-        data = {f1coins: f1coins, race: raceName, raceSeason: raceSeason, team: team, userID: bruh}
+        data = {race: raceName, raceSeason: raceSeason, team: team, userID: bruh, f1coins: f1coins}
 
         var requestOptions = {
           method: 'POST',
@@ -559,7 +559,7 @@ p{
         };
 
          fetch(
-          `https://f1-backend.aadit.dev/api/user/makeBet`,requestOptions
+          `https://localhost:8085/api/user/makeBet`,requestOptions
         )
           .then(response => response.text())
         .then(result => {
