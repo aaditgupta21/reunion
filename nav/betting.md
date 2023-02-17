@@ -463,6 +463,7 @@ p{
     }
 
     let bruh = localStorage.getItem("ID");
+    
     fetch("https://f1-backend.aadit.dev/api/user/coins/" + bruh, {method: "GET", mode: 'cors',cache: 'default', credentials: 'include', headers: {'Content-Type': "application/json"}})
       .then((data) => data.json())
       .then((data) => {

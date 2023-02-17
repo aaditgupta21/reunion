@@ -35,6 +35,7 @@ Login
             console.log(data.data);
             localStorage.setItem('ID', data.data);
             console.log('Data saved in sessionStorage');
+            console.log(data.status);
             if (data.status == 200) {
               window.location.href = "https://aaditgupta21.github.io/reunion/";
             } else {
