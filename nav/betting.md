@@ -546,6 +546,7 @@ p{
         slideToTeam();
 
         let userId = localStorage.getItem("ID");
+        console.log(userID);
 
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
