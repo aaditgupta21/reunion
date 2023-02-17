@@ -545,13 +545,10 @@ p{
         setBetFields();
         slideToTeam();
 
-        let userId = localStorage.getItem("ID");
-        console.log(userID);
-
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
 
-        data = {f1coins: f1coins, race: raceName, raceSeason: raceSeason, team: team, userID: userID}
+        data = {f1coins: f1coins, race: raceName, raceSeason: raceSeason, team: team, userID: bruh}
 
         var requestOptions = {
           method: 'POST',
