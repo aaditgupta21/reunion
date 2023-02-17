@@ -124,7 +124,7 @@ function add_row(){
 </table>
 <script type="text/javascript">
     const races = document.querySelector(".races");
-    fetch("http://ergast.com/api/f1/2023/races.json")
+    fetch("https://ergast.com/api/f1/2023/races.json")
       .then((data) => data.json())
       .then((data) => {
         console.log(data);

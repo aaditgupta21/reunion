@@ -55,7 +55,7 @@ ul li::before {
   border: 2px solid #CD2A2A;
   border-radius: 40px;
   color: gray;">
-    <button type="submit" onclick="formSubmit()">Submit</button>
+    <button type="Save Notes" onclick="formSubmit()">Submit</button>
     <br>
 </div>
 
