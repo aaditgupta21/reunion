@@ -46,26 +46,8 @@ ul li::before {
   color: black;">
     <button type="submit" onclick="formSubmit()">Get Info</button>
 </div>
-
-<div class="container my-3">
-    <h1>What do you think about this?</h1>
-    <div class="card">
-        <div class="card-body">
-            <h1 class="card-title">
-            </h1>
-            <div class="form-group">
-					<textarea class="form-control" id="addTxt" rows="3">
-					</textarea>
-            </div>
-            <button onclick="showNotes()" class="btn btn-primary"
-                    id="addBtn" style=
-                            "background-color:pink; border-color: pink; margin-left:5px; margin-top:5px">
-                Add Comment
-            </button>
-        </div>
-    </div>
-    <div style="margin: 0 auto; text-align: center">
-    <input type="text" id="partType" name="partType" placeholder="Part Type"
+<div style="margin: 0 auto; text-align: center">
+    <input type="text" id="partType" name="partType" placeholder="Your Opinion"
      style="width: 50%;
   padding: 5px 5px;
   margin: 8px 0;
