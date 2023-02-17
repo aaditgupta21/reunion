@@ -13,6 +13,7 @@ Signup
  <div style="margin: 0 auto; text-align: center">
     <input type="text" id="email" name="email" placeholder="Email">
     <input type="password" id="password" name="password" required placeholder="Password">
+    <input type="password" id="passwordverf" name="passwordverf" required placeholder="Re-enter Password">
     <input type="text" id="name" name="name" placeholder="Name">
     <input type="date" id="dob" name="dob" placeholder="MM-dd-yyyy" style="width: 50%;
   padding: 5px 5px;
@@ -43,6 +44,7 @@ Signup
     function formSubmit() {
         let email = document.getElementById("email").value;
         let password = document.getElementById("password").value;
+        let passwordverf = document.getElementById("passwordverf").value;
         let name = document.getElementById("name").value;
         let dob = document.getElementById("dob").value;
         let gender = document.getElementById("gender").value;
@@ -51,28 +53,33 @@ Signup
 
         console.log(gender);
         console.log(dob);
-var myHeaders = new Headers();
-myHeaders.append("Content-Type", "application/json");
-data = {email: email, password: password, name: name, dob: dob, gender: gender, teamName: teamName}
-var requestOptions = {
-  method: 'POST',
-  headers: myHeaders,
-  redirect: 'manual',
-  body: JSON.stringify(data)
-};
-         fetch(
-          `https://f1-backend.aadit.dev/api/user/newUser`,requestOptions
-        )
-          .then(response => response.text())
-  .then(result => {
-    console.log(result);
-    if (result == `${email} user created successfully`) {
-      window.location.href = "https://aaditgupta21.github.io/reunion/login";
-    } else {
-      alert("Invalid credentials");
-    }
-  })
-  .catch(error => console.log('error', error));
 
+        if(password == passwordverf){
+            var myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json");
+            data = {email: email, password: password, name: name, dob: dob, gender: gender, teamName: teamName}
+            var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            redirect: 'manual',
+            body: JSON.stringify(data)
+            };
+            fetch(
+            `https://f1-backend.aadit.dev/api/user/newUser`,requestOptions
+            )
+            .then(response => response.text())
+            .then(result => {
+                console.log(result);
+                if (result == `${email} user created successfully`) {
+                window.location.href = "https://aaditgupta21.github.io/reunion/login";
+                } else {
+                alert("Invalid credentials");
+                }
+            })
+            .catch(error => console.log('error', error));
+        }
+        else{
+            alert("Passwords do not match");
+        }
     }
 </script>
