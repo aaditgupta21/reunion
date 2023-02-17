@@ -65,8 +65,8 @@ ul li::before {
         </div>
     </div>
     <div style="margin: 0 auto; text-align: center">
-    <input type="text" id="partType" name="partType" placeholder="Part Type">
-    <input type="text" id="weight" name="weight" placeholder="Weight of Item (In # of LBs)" style="width: 50%;
+    <input type="text" id="partType" name="partType" placeholder="Part Type"
+     style="width: 50%;
   padding: 5px 5px;
   margin: 8px 0;
   box-sizing: border-box;
