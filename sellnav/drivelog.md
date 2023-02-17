@@ -169,6 +169,7 @@
                   div.innerHTML = `
                     <div class="card-body">
                       <h1 class="card-title">${formattedDate}</h1>
+                      <p class="card-text" style="color: black">ID: ${log.id}</p>
                       <p class="card-text" style="color: black">Miles: ${log.miles} miles</p>
                       <p class="card-text" style="color: black">Time (min): ${log.time} minutes</p>
                       <p class="card-text" style="color: black">Race Name: ${log.raceName}</p>

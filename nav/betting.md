@@ -1,3 +1,10 @@
+<script>
+  let bruh = localStorage.getItem("ID");
+  if(bruh = undefined){
+    window.location.href = "https://aaditgupta21.github.io/reunion/nav/login";
+  }
+</script>
+
 <style>
     * {
   box-sizing: border-box;
@@ -461,8 +468,6 @@ p{
     function currentSlide(n) {
         showSlides(slideIndex = n);
     }
-
-    let bruh = localStorage.getItem("ID");
     
     fetch("https://f1-backend.aadit.dev/api/user/coins/" + bruh, {method: "GET", mode: 'cors',cache: 'default', credentials: 'include', headers: {'Content-Type': "application/json"}})
       .then((data) => data.json())
@@ -549,7 +554,7 @@ p{
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
 
-        data = {f1coins: f1coins, race: raceName, raceSeason: raceSeason, team: team, userID: bruh}
+        data = {race: raceName, raceSeason: raceSeason, team: team, userID: bruh, f1coins: f1coins}
 
         var requestOptions = {
           method: 'POST',
@@ -559,7 +564,7 @@ p{
         };
 
          fetch(
-          `https://f1-backend.aadit.dev/api/user/makeBet`,requestOptions
+          `https://localhost:8085/api/user/makeBet`,requestOptions
         )
           .then(response => response.text())
         .then(result => {
