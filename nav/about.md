@@ -33,5 +33,5 @@
 </div>
 
 <div>
-    <a href='https://postimg.cc/XXw5VC85' target='_blank'><img src='/static/f1.png' border='0' alt='f1car' id="logo"/></a>
+    <img src='/static/f1.png' border='0' alt='f1car' id="logo"/>
 </div>
