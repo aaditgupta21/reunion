@@ -545,7 +545,7 @@ p{
         setBetFields();
         slideToTeam();
 
-        userId = localStorage.getItem("ID");
+        let userId = localStorage.getItem("ID");
 
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
