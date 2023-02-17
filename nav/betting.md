@@ -1,3 +1,10 @@
+<script>
+  let bruh = localStorage.getItem("ID");
+  if(bruh = undefined){
+    window.location.href = "https://aaditgupta21.github.io/reunion/nav/login";
+  }
+</script>
+
 <style>
     * {
   box-sizing: border-box;
@@ -461,8 +468,6 @@ p{
     function currentSlide(n) {
         showSlides(slideIndex = n);
     }
-
-    let bruh = localStorage.getItem("ID");
     
     fetch("https://f1-backend.aadit.dev/api/user/coins/" + bruh, {method: "GET", mode: 'cors',cache: 'default', credentials: 'include', headers: {'Content-Type': "application/json"}})
       .then((data) => data.json())
