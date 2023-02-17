@@ -135,6 +135,9 @@ p{
 </style>
 
 <h1>Betting
+<br>
+<small><input type="text" name="raceName" id="raceName" placeholder="race name"></small>
+<small><input type="text" name="raceSeason" id="raceSeason" placeholder="race season"></small>
 <span>
 <a style="right:175px; position: absolute;">Coins<span><a class="rcorners1" id="coins" style="margin-left:5px"></a></span></a>
 
@@ -488,15 +491,66 @@ p{
         slides[slideIndex-1].style.display = "block";
     }
 
-    function formSubmit() {
-        let num = slides[i]+1;
-        let coins = document.getElementById("bet").value;
-        if (num == 1){
+    let team = "";
 
-        }
+    function slideToTeam() {
+      switch(slideIndex) {
+        case 1:
+          team = "Mercedes";
+          break;
+        case 2:
+          team = "Alpine";
+          break;
+        case 3:
+          team = "Haas F1";
+          break;
+        case 4:
+          team = "McLaren";
+          break;
+        case 5:
+          team = "Redbull Racing";
+          break;
+        case 6:
+          team = "Aston Martin";
+          break;
+        case 7:
+          team = "AlphaTauri";
+          break;
+        case 8:
+          team = "Ferrari";
+          break;
+        case 9:
+          team = "Alfa Romeo";
+          break;
+        case 10:
+          team = "Williams";
+          break;
+        default:
+          console.log("bruh idk howd it ever get to this :skull:");
+          break;
+      }
+    }
+
+    const f1coins;
+    const raceName;
+    const raceSeason;
+
+    function setBetFields() {
+      f1coins = document.getElementById("bet").value;
+      raceName = document.getElementById("raceName").value;
+      raceSeason = document.getElementById("raceSeason").value;
+    }
+
+    function formSubmit() {
+        setBetFields();
+        slideToTeam();
+
+        userId = localStorage.getItem("ID");
 
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
+
+        data = {f1coins: f1coins, race: raceName, raceSeason: raceSeason, team: team, userID: userID}
 
         var requestOptions = {
           method: 'POST',
@@ -504,13 +558,14 @@ p{
           redirect: 'manual',
           body: JSON.stringify(data)
         };
+
          fetch(
-          `https://f1-backend.aadit.dev/api/user/updateCoins`,requestOptions
+          `https://f1-backend.aadit.dev/api/user/makeBet`,requestOptions
         )
           .then(response => response.text())
         .then(result => {
           console.log(result);
-          if (result == `${f1coin} coins successfully`) {
+          if (result == 'Bet for ' + team + ' of ' + f1coins + ' f1Coins.') {
             window.location.href = "https://aaditgupta21.github.io/reunion/nav/betting";
           } else {
             alert("Error inputting coins, try again later.");
