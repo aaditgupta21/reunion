@@ -541,6 +541,7 @@ p{
 
     function setBetFields() {
       f1coins = parseFloat(document.getElementById("bet").value);
+      console.log(f1coins);
       raceName = document.getElementById("raceName").value;
       raceSeason = document.getElementById("raceSeason").value;
     }
