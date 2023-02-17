@@ -64,6 +64,18 @@ ul li::before {
             </button>
         </div>
     </div>
+    <div style="margin: 0 auto; text-align: center">
+    <input type="text" id="partType" name="partType" placeholder="Part Type">
+    <input type="text" id="weight" name="weight" placeholder="Weight of Item (In # of LBs)" style="width: 50%;
+  padding: 5px 5px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid #CD2A2A;
+  border-radius: 40px;
+  color: gray;">
+    <button type="submit" onclick="formSubmit()">Submit</button>
+    <br>
+</div>
 
 <!-- button to delete table -->
 <div lik style="margin: 0 auto; text-align: center">
