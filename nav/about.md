@@ -33,5 +33,5 @@
 </div>
 
 <div>
-    <img src='/static/f1.png' border='0' alt='f1car' id="logo"/>
+    <img src='/assets/f1.png' border='0' alt='f1car' id="logo"/>
 </div>
