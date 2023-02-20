@@ -453,7 +453,7 @@ p{
     // let url = "http://localhost:8085";
     let url = "https://f1-backend.aadit.dev/"
     if(bruh == undefined){
-      window.location.href = "https://aaditgupta21.github.io/reunion/nav/login";
+      window.location.href = "https://aaditgupta21.github.io/reunion/login";
     }
     
     let slideIndex = 1;
