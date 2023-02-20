@@ -553,7 +553,7 @@ p{
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
 
-        data = {race: raceName, raceSeason: raceSeason, team: team, userID: bruh, f1coins: f1coins}
+        data = {race: raceName, raceSeason: raceSeason, team: team, user: bruh, f1coins: f1coins}
 
         var requestOptions = {
           method: 'POST',
