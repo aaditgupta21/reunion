@@ -451,7 +451,7 @@ p{
 <script>
     let bruh = localStorage.getItem("ID");
     if(bruh == undefined){
-      window.location.href = "https://aaditgupta21.github.io/reunion/nav/login";
+      window.location.href = "https://aaditgupta21.github.io/reunion/login";
     }
     
     let slideIndex = 1;
