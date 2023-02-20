@@ -173,7 +173,7 @@
                       <p class="card-text" style="color: black">Miles: ${log.miles} miles</p>
                       <p class="card-text" style="color: black">Time (min): ${log.time} minutes</p>
                       <p class="card-text" style="color: black">Race Name: ${log.raceName}</p>
-                      <a target="_blank" href="https://f1-backend.aadit.dev/api/team/drivelog/delete/${log.id}"></a><button
+                      <a target="_blank" href="https://f1-backend.aadit.dev/api/team/drivelog/delete/${log.id}"><button
                         id="${index}"
                         class="btn btn-primary"
                         style="background-color: pink; border-color: pink"
