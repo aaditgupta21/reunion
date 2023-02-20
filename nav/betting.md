@@ -451,7 +451,7 @@ p{
 <script>
     let bruh = localStorage.getItem("ID");
     // let url = "http://localhost:8085";
-    let url = "https://f1-backend.aadit.dev/"
+    let url = "https://f1-backend.aadit.dev"
     if(bruh == undefined){
       window.location.href = "https://aaditgupta21.github.io/reunion/login";
     }
