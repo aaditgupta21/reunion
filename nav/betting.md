@@ -450,6 +450,8 @@ p{
 
 <script>
     let bruh = localStorage.getItem("ID");
+    // let url = "http://localhost:8085";
+    let url = "https://f1-backend.aadit.dev/"
     if(bruh == undefined){
       window.location.href = "https://aaditgupta21.github.io/reunion/nav/login";
     }
@@ -467,7 +469,7 @@ p{
         showSlides(slideIndex = n);
     }
     
-    fetch("https://f1-backend.aadit.dev/api/user/coins/" + bruh, {method: "GET", mode: 'cors',cache: 'default', credentials: 'include', headers: {'Content-Type': "application/json"}})
+    fetch(url + "/api/user/coins/" + bruh, {method: "GET", mode: 'cors',cache: 'default', credentials: 'include', headers: {'Content-Type': "application/json"}})
       .then((data) => data.json())
       .then((data) => {
         console.log(data);
@@ -535,12 +537,12 @@ p{
       }
     }
 
-    let f1coins = 0.0;
+    let f1coins = "";
     let raceName = "";
     let raceSeason = "";
 
     function setBetFields() {
-      f1coins = parseFloat(document.getElementById("bet").value);
+      f1coins = document.getElementById("bet").value;
       console.log(f1coins);
       raceName = document.getElementById("raceName").value;
       raceSeason = document.getElementById("raceSeason").value;
@@ -563,7 +565,7 @@ p{
         };
 
          fetch(
-          `https://f1-backend.aadit.dev/api/user/makeBet`,requestOptions
+          url + `/api/user/makeBet`, requestOptions
         )
           .then(response => response.text())
         .then(result => {
