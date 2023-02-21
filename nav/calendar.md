@@ -62,43 +62,7 @@
   </style>
 </head>
 
-<script type="text/javascript">
-function add_row(){
-  var new_event=document.getElementById("new_event").value;
-  var new_date=document.getElementById("new_date").value;
-  var new_note=document.getElementById("new_note").value;
-
-  var table=document.getElementById("data_table");
-  var table_len=(table.rows.length);
-  var row = table.insertRow(table_len).outerHTML="<tr id='row"+table_len+"'><td id='event_row"+table_len+"'>"+new_event+"</td><td id='date_row"+table_len+"'>"+new_date+"</td><td id='note_row"+table_len+"'>"+new_note+"</td></tr>";
-
-            let event = new_event;
-            let dateOfEvent = new_date;
-            let note = new_note;
-            data = {event: event, dateOfEvent: dateOfEvent, note: note}
-            var options = {
-                method: 'POST',
-                mode: 'cors',
-                cache: 'no-cache',
-                credentials: 'include',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            };
-            fetch(
-                `https://f1-backend.aadit.dev/api/calendar/newCalendar`, options
-                )
-                .then(response => response.text())
-
-  document.getElementById("new_event").value="";
-  document.getElementById("new_date").value="";
-  document.getElementById("new_note").value="";
-
- }
-
-
-</script>
+<script type="text/javascript" src="table_script.js"></script>
 
 <body>
 <h1 style="text-align: center; font-size: 50px">
