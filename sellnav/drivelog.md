@@ -141,6 +141,7 @@
                 console.log(result);
                 if (result == `DriveLog created successfully`) {
                 alert("DriveLog created successfully");
+                window.location.href = "https://aaditgupta21.github.io/reunion/sellnav/drivelog";
                 } else {
                 alert("Error occurred during submission, reload and try again.");
                 }
