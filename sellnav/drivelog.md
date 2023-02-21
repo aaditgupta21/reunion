@@ -89,13 +89,6 @@
               placeholder="Miles"
               style="background-color: white"
             />
-            <input
-              type="text"
-              id="teamName"
-              name="teamName"
-              placeholder="Team Name"
-              style="background-color: white"
-            />
           </div>
           <button type="submit" onclick="formSubmit()">Submit</button>
           <button
@@ -120,13 +113,16 @@
       </div>
     </div>
     <script type="text/javascript">
+        let bruh = localStorage.getItem("ID");
+        if(bruh == undefined){
+          window.location.href = "https://aaditgupta21.github.io/reunion/login";
+        }
         function formSubmit() {
             let raceName = document.getElementById("raceName").value;
             let date = document.getElementById("date").value;
             let time = document.getElementById("time").value;
             let miles = document.getElementById("miles").value;
-            let teamName = document.getElementById("teamName").value;
-            data = {raceName: raceName, date: date, time: time, miles: miles, teamName: teamName}
+            data = {raceName: raceName, date: date, time: time, miles: miles, user: bruh}
             var requestOptions = {
                 method: 'POST',
                 mode: 'cors',
@@ -157,7 +153,7 @@
               "September", "October", "November", "December"
             ];
             const logsContainer = document.getElementById("logs-container");
-            fetch("https://f1-backend.aadit.dev/api/team/drivelogs")
+            fetch("https://f1-backend.aadit.dev/api/team/drivelogs/" + bruh)
               .then(response => response.json())
               .then(data => {
                 // Loop through each item in the array and create a div with the log information
