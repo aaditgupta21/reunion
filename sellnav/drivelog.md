@@ -91,19 +91,6 @@
             />
           </div>
           <button type="submit" onclick="formSubmit()">Submit</button>
-          <button
-            onclick="showNotes()"
-            class="btn btn-primary"
-            id="addBtn"
-            style="
-              background-color: pink;
-              border-color: pink;
-              margin-left: 5px;
-              margin-top: 5px;
-            "
-          >
-            Add Comment
-          </button>
         </div>
       </div>
       <hr />
