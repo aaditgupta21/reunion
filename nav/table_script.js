@@ -16,24 +16,6 @@ function edit_row(no)
  note.innerHTML="<input type='text' id='note_text"+no+"' value='"+note_data+"'>";
 }
 
-function save_row(no)
-{
- var event_val=document.getElementById("event_text"+no).value;
- var date_val=document.getElementById("date_text"+no).value;
- var note_val=document.getElementById("note_text"+no).value;
-
- document.getElementById("event_row"+no).innerHTML=event_val;
- document.getElementById("date_row"+no).innerHTML=date_val;
- document.getElementById("note_row"+no).innerHTML=note_val;
-
- document.getElementById("edit_button"+no).style.display="block";
- document.getElementById("save_button"+no).style.display="none";
-}
-
-function delete_row(no)
-{
- document.getElementById("row"+no+"").outerHTML="";
-}
 
 function add_row()
 {
