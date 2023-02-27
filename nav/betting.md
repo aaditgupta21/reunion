@@ -135,15 +135,13 @@ p{
 </style>
 
 <h1>Betting
-<br>
-<small><input type="text" name="raceName" id="raceName" placeholder="race name"></small>
-<small><input type="text" name="raceSeason" id="raceSeason" placeholder="race season"></small>
 <span>
 <a style="right:175px; position: absolute;">Coins<span><a class="rcorners1" id="coins" style="margin-left:5px"></a></span></a>
 
 </span>
 </h1>
 
+<div>
 <div style="margin: 0 auto; text-align: center">
 <div class="row">
 <!-- COLUMN 1 -->
@@ -445,8 +443,33 @@ p{
 <input value="Submit" type="submit" class="button" onclick="formSubmit()" style="padding: 10px; margin:0; margin-top: 10px">
 </a>
 
-<div>
+</div>
+</div>
+</div>
 <a id="updcoin"></a>
+
+<div>
+  <small><input type="text" name="raceName" id="raceName" placeholder="race name"></small>
+  <small><input type="text" name="raceSeason" id="raceSeason" placeholder="race season"></small>
+</div>
+
+<br>
+
+<div>
+  <table id = "bets">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>teamName</th>
+        <th>raceName</th>
+        <th>raceDate</th>
+        <th>fCoinBet</th>
+        <th>betActive</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</div>
 
 <script>
     let bruh = localStorage.getItem("ID");
@@ -549,10 +572,30 @@ p{
     }
 
     function formSubmit() {
-        setBetFields();
-        slideToTeam();
-
         var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+        data = {user: bruh}
+
+        var requestOptions = {
+          method: 'GET',
+          headers: myHeaders,
+          redirect: 'manual',
+          body: JSON.stringify(data)
+        };
+
+         fetch(
+          url + `/api/user/getBets`, requestOptions
+        )
+        .then(response => response.text())
+        .then(result => {
+          console.log(result);
+        })
+        .catch(error => console.log('error', error));
+    }
+
+    function listBets() {
+    var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
 
         data = {race: raceName, raceSeason: raceSeason, team: team, user: bruh, f1coins: f1coins}
@@ -577,5 +620,7 @@ p{
           }
         })
         .catch(error => console.log('error', error));
-    }
+  }
+
+  listBets();
 </script>
