@@ -651,8 +651,8 @@ p{
                 f1Coins.innerHTML = row.f1Coins;
                 betActive.innerHTML = row.betActive;
 
-                // const updateURL = 'https://aaditgupta21.github.io/reunion/updateBet';
-                const updateURL = 'http://localhost:4000/updateBet';
+                const updateURL = 'https://aaditgupta21.github.io/reunion/updateBet';
+                // const updateURL = 'http://localhost:4000/updateBet';
 
                 updateAction.innerHTML = `<a href="${updateURL}">update</a>`
 
