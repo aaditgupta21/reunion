@@ -1,43 +1,32 @@
-## The Reunion Project
+# Formula 1
+A formula 1 betting website
 
-Usage
+Features: 
+- Races throughout history 
+- Interactive calendar
+- Betting on races
+- Creating notes
+- Team drive logs
+- Sign up and log in
 
-1. Midnight Theme. Use the GitHub Pages [Midnight Theme](https://github.com/pages-themes/midnight/blob/master/README.md) as a resource.  This project started with customization of _layouts/default.html from the Midnight Theme.  If you wanted to use a different [GitHub Pages Themes](https://pages.github.com/themes/), you would similarly change `_layouts/default.html` from repo used to support that theme.  Observe comment at top of _layouts/default.html ...
+Previews: 
 
-```html
-<!-- 
-  _layouts/default.html
-  customization to original Midnight theme 
-  found through GitHub Pages Themes
- -->
-```
+<img width="909" alt="Screen Shot 2023-02-27 at 8 48 32 AM" src="https://user-images.githubusercontent.com/108628576/221626890-4c31cf3f-c910-482a-a5ad-3396afdbd28b.png">
 
-2. Preview Site (Option A) - [Testing your GitHub Pages site locally with Jekyll](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/testing-your-github-pages-site-locally-with-jekyll).  This instruction provides instructions for ruby `Gemfile`,`bundle install`.  As an addition add `.gitignore` to avoid seeing build files in commit.   After pre-requisites run this command to obtain prompt for web server ...
+Calendar
+<img width="932" alt="Screen Shot 2023-02-27 at 8 48 49 AM" src="https://user-images.githubusercontent.com/108628576/221626957-662abd6f-0fbe-4b6d-9e08-4a220ba48478.png">
 
-```bash
-bundle exec jekyll serve -H 0.0.0.0 -P 4001 # -H and -P are optional
-```
+Betting
+<img width="758" alt="Screen Shot 2023-02-27 at 8 49 15 AM" src="https://user-images.githubusercontent.com/108628576/221627078-a650d60d-e55b-4ee0-8d68-3c392079a02a.png">
 
-3. Preview Site (Option B) - [GitHub Pages Ruby Gem](https:/env/github.com/github/pages-gem) has additional information on making a local server.  Ruby requirements are the same: `Gemfile`,`bundle install`.   This README looks like basis of FastPages `make server` as it uses Docker and shows how to setup a `Makefile`.
+Notes
+<img width="775" alt="Screen Shot 2023-02-27 at 8 49 28 AM" src="https://user-images.githubusercontent.com/108628576/221627138-2f317791-e2c0-4b10-b69f-993dfd1967fc.png">
 
-4. Customizing style (CSS).  This project uses `/assets/css/style.scss` as the location to customize your CSS. To avoid warnings in VSCode make sure you install `SCSS IntelliSense` plugin.  To understand default style, make sure you ***Preview Site*** and refer to build generated `_site/assets/css/style.css` (this is worth 1000 lectures).  For the reunion site `gallery.md` uses custom style from `assets/css/style.css` to support 3 images per row.  Observe file and position of import and custom CSS, order is important as clarified in Midnight Theme readme. ...
+Selling parts
+<img width="730" alt="Screen Shot 2023-02-27 at 8 49 50 AM" src="https://user-images.githubusercontent.com/108628576/221627232-b10978fe-8b09-4c0a-9ef8-b01ee2e6bd11.png">
 
-```css
----
----
+Drive log
+<img width="781" alt="Screen Shot 2023-02-27 at 8 50 04 AM" src="https://user-images.githubusercontent.com/108628576/221627314-24a4b0b0-b509-43a4-8ec4-fffc961c404c.png">
 
-@import "{{ site.theme }}";
-
-/* "row style" is flexible size and aligns pictures in center */
-.row {
-    align-items: center;
-    display: flex;
-  }
-  
-  /* "column style" is one-third of the width with padding */
-  .column {
-    flex: 33.33%;
-    padding: 5px;
-  }
-```
-
+Signup
+<img width="668" alt="Screen Shot 2023-02-27 at 8 50 16 AM" src="https://user-images.githubusercontent.com/108628576/221627392-d75eb576-9039-4b6e-9c80-678875c281d3.png">

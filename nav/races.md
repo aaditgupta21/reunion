@@ -111,21 +111,19 @@ ul li::before {
         console.log(comment);
 
       fetch(
-          `https://f1-backend.aadit.dev/api/race/makeComment?comment=${comment}`,{method: "POST", mode: 'cors',cache: 'no-cache', credentials: 'include', headers: {'Content-Type': "application/json"}}
+          `https://f1-backend.aadit.dev/api/race/newComment?comment=${comment}`,{method: "POST", mode: 'cors',cache: 'no-cache', credentials: 'include', headers: {'Content-Type': "application/json"}}
         )
           .then(response => response.text())
   .then(result => {
     console.log(result);
-    if (result == `${partType} listed successfully!`) {
-      alert("Part Listed Successfully!");
-      window.location.href = "https://aaditgupta21.github.io/reunion/sellnav/listings";
+    if (result == `${comment} listed successfully!`) {
+      alert("Comment Successful!");
     } else {
       alert("Error");
     }
   })
   .catch(error => console.log('error', error));
 
-    }
     }
 
     function deleteTable() {
