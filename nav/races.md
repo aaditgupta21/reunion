@@ -126,7 +126,6 @@ ul li::before {
   .catch(error => console.log('error', error));
 
     }
-    }
 
     function deleteTable() {
       for (i = raceTable.rows.length - 1; i > 0; i--) {
