@@ -55,7 +55,7 @@ ul li::before {
   border: 2px solid #CD2A2A;
   border-radius: 40px;
   color: gray;">
-    <button type="Save Notes" onclick="formSubmit()">Submit</button>
+    <button type="Save Notes" onclick="notesSubmit()">Submit</button>
     <br>
 </div>
 
@@ -93,17 +93,17 @@ ul li::before {
           });
         });
 
-        fetch("https://f1-backend.aadit.dev/api/race/races/winner/" + year, {method: "GET", mode: 'cors',cache: 'default', credentials: 'include', headers: {'Content-Type': "application/json"}})
-        .then((data) => data.json())
-        .then((data) => {
-          console.log(data);
-          data.MRData.RaceTable.Races.forEach((data) => {
-            races.innerHTML += `
-        <tr>
-          <td>${data.Results.number}</td>
-        </tr>`;
-          });
-        });
+        // fetch("https://f1-backend.aadit.dev/api/race/races/winner/" + year, {method: "GET", mode: 'cors',cache: 'default', credentials: 'include', headers: {'Content-Type': "application/json"}})
+        // .then((data) => data.json())
+        // .then((data) => {
+        //   console.log(data);
+        //   data.MRData.RaceTable.Races.forEach((data) => {
+        //     races.innerHTML += `
+        // <tr>
+        //   <td>${data.Results.number}</td>
+        // </tr>`;
+        //   });
+        // });
     }
 
     function deleteTable() {
