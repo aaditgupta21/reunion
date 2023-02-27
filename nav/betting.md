@@ -691,7 +691,7 @@ p{
           method: 'DELETE',
           headers: myHeaders,
           redirect: 'manual',
-          mode: 'cors',
+          mode: 'no-cors',
           cache: 'default', 
           credentials: 'include',
           body: JSON.stringify(data)
