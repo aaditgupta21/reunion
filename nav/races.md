@@ -111,7 +111,7 @@ ul li::before {
         console.log(comment);
 
       fetch(
-          `https://f1-backend.aadit.dev/api/race/Comment?comment=${comment}`,{method: "POST", mode: 'cors',cache: 'no-cache', credentials: 'include', headers: {'Content-Type': "application/json"}}
+          `https://f1-backend.aadit.dev/api/race/newComment?comment=${comment}`,{method: "POST", mode: 'cors',cache: 'no-cache', credentials: 'include', headers: {'Content-Type': "application/json"}}
         )
           .then(response => response.text())
   .then(result => {
