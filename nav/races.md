@@ -75,7 +75,7 @@ ul li::before {
 
         const races = document.querySelector(".races");
       // https://f1-backend.aadit.dev/api/race/races?year=2021
-      fetch("https://f1-backend.aadit.dev/api/race/races/" + year, {method: "GET", mode: 'cors',cache: 'default', credentials: 'include', headers: {'Content-Type': "application/json"}})
+      fetch("https://f1-backend.aadit.dev/api/race/races/" {method: "GET", mode: 'cors',cache: 'default', credentials: 'include', headers: {'Content-Type': "application/json"}})
         .then((data) => data.json())
         .then((data) => {
           console.log(data);
