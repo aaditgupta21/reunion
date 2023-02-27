@@ -106,6 +106,11 @@ ul li::before {
         // });
     }
 
+    function notesSubmit() {
+      let comment = document.getElementById("comment").value;
+        console.log(comment);
+    }
+
     function deleteTable() {
       for (i = raceTable.rows.length - 1; i > 0; i--) {
       document.getElementById("raceTable").deleteRow(i); 
