@@ -116,8 +116,8 @@ ul li::before {
           .then(response => response.text())
   .then(result => {
     console.log(result);
-    if (result == `${partType} listed successfully!`) {
-      alert("Part Listed Successfully!");
+    if (result == `comment "${comment}" successful!`) {
+      alert("Comment Listed Successfully!");
       window.location.href = "https://aaditgupta21.github.io/reunion/sellnav/listings";
     } else {
       alert("Error");
