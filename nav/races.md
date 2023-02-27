@@ -47,7 +47,7 @@ ul li::before {
     <button type="submit" onclick="formSubmit()">Get Info</button>
 </div>
 <div style="margin: 0 auto; text-align: center">
-    <input type="text" id="partType" name="partType" placeholder="Your Opinion"
+    <input type="text" id="comment" name="comment" placeholder="Your Opinion"
      style="width: 50%;
   padding: 5px 5px;
   margin: 8px 0;
