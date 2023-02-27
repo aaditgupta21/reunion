@@ -24,8 +24,11 @@ Login
         data = {email: email, password: password}
         console.log(data);
 
+        let url = 'https://f1-backend.aadit.dev/authenticate';
+        // let url = 'http://localhost:8085/authenticate';
+
         fetch(
-          `https://f1-backend.aadit.dev/authenticate`, {method: "POST", mode: 'cors',cache: 'no-cache', credentials: 'include', headers: {'Content-Type': "application/json"}, body: JSON.stringify(data)})
+          url, {method: "POST", mode: 'cors',cache: 'no-cache', credentials: 'include', headers: {'Content-Type': "application/json"}, body: JSON.stringify(data)})
           .then((response) => {
             console.log(response);
             return response.json();

@@ -471,10 +471,17 @@ p{
   </table>
 </div>
 
+<br>
+
+<div>
+
+</div>
+
 <script>
     let bruh = localStorage.getItem("ID");
     // let url = "http://localhost:8085";
     let url = "https://f1-backend.aadit.dev"
+
     if(bruh == undefined){
       window.location.href = "https://aaditgupta21.github.io/reunion/login";
     }
@@ -572,30 +579,10 @@ p{
     }
 
     function formSubmit() {
+        setBetFields();
+        slideToTeam();
+
         var myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
-
-        data = {user: bruh}
-
-        var requestOptions = {
-          method: 'GET',
-          headers: myHeaders,
-          redirect: 'manual',
-          body: JSON.stringify(data)
-        };
-
-         fetch(
-          url + `/api/user/getBets`, requestOptions
-        )
-        .then(response => response.text())
-        .then(result => {
-          console.log(result);
-        })
-        .catch(error => console.log('error', error));
-    }
-
-    function listBets() {
-    var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
 
         data = {race: raceName, raceSeason: raceSeason, team: team, user: bruh, f1coins: f1coins}
@@ -603,6 +590,9 @@ p{
         var requestOptions = {
           method: 'POST',
           headers: myHeaders,
+          mode: 'cors',
+          cache: 'default', 
+          credentials: 'include',
           redirect: 'manual',
           body: JSON.stringify(data)
         };
@@ -617,6 +607,106 @@ p{
             window.location.href = "https://aaditgupta21.github.io/reunion/nav/betting";
           } else {
             alert("Error inputting coins, try again later.");
+          }
+        })
+        .catch(error => console.log('error', error));
+    }
+
+    function listBets() {
+    // prepare HTML user container for new output
+    const betContainer = document.getElementById("bets");
+
+    var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+        var requestOptions = {
+          method: 'GET',
+          headers: myHeaders,
+          redirect: 'manual',
+        };
+
+         fetch(
+          url + `/api/user/getBets/${bruh}`, requestOptions
+        )
+        .then(response => response.text())
+        .then(result => {
+          console.log(result);
+              for (const row of JSON.parse(result)) {
+
+                const tr = document.createElement("tr");
+
+                const id = document.createElement("td");
+                const teamName = document.createElement("td");
+                const raceName = document.createElement("td");
+                const raceDate = document.createElement("td");
+                const f1Coins = document.createElement("td");
+                const betActive = document.createElement("td");
+                const updateAction = document.createElement("td");
+                const deleteAction = document.createElement("td");
+
+                id.innerHTML = row.id;
+                teamName.innerHTML = row.teamName;
+                raceName.innerHTML = row.raceName;
+                raceDate.innerHTML = row.raceDate;
+                f1Coins.innerHTML = row.f1Coins;
+                betActive.innerHTML = row.betActive;
+
+                // const updateURL = 'https://aaditgupta21.github.io/reunion/updateBet';
+                const updateURL = 'http://localhost:4000/updateBet';
+
+                updateAction.innerHTML = `<a href="${updateURL}">update</a>`
+
+                deleteAction.innerHTML = `<a onclick="deleteClick(event, ${row.id})" href="">delete</a>`
+
+                tr.appendChild(id);
+                tr.appendChild(teamName);
+                tr.appendChild(raceName);
+                tr.appendChild(raceDate)
+                tr.appendChild(f1Coins);
+                tr.appendChild(betActive);
+                tr.appendChild(updateAction);
+                tr.appendChild(deleteAction);
+
+                betContainer.appendChild(tr);
+              }
+          })
+        .catch(error => {
+          console.log('error', error)
+          const tr = document.createElement("tr");
+          const td = document.createElement("td");
+          td.innerHTML = error.toString();
+          tr.appendChild(td);
+          betContainer.appendChild(tr);
+        });
+  }
+
+  function deleteClick(event, betId){
+    event.preventDefault();
+    var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+        const data = {betId}
+
+        var requestOptions = {
+          method: 'DELETE',
+          headers: myHeaders,
+          redirect: 'manual',
+          mode: 'cors',
+          cache: 'default', 
+          credentials: 'include',
+          body: JSON.stringify(data)
+        };
+
+         fetch(
+          url + `/api/user/deleteBet`, requestOptions
+        )
+        .then(response => response.text())
+        .then(result => {
+          console.log(result);
+          if (result == 'successfully deleted bet') {
+            window.location.href = "https://aaditgupta21.github.io/reunion/nav/betting";
+          } else {
+            alert("Error deleting bet, try again later.");
           }
         })
         .catch(error => console.log('error', error));
