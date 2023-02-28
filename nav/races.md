@@ -132,7 +132,7 @@ ul li::before {
           .then(response => response.text())
   .then(result => {
     console.log(result);
-    if (result == `${comment} listed successfully!`) {
+    if (result == "") {
       alert("Comment Successful!");
     } else {
       alert("Error");
