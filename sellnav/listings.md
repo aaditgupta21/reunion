@@ -13,6 +13,7 @@
         <th>Weight</th>
         <th>End Date</th>
         <th>Image Url</th>
+        <th>Function</th>
       </tr>
     </thead>
     <tbody></tbody>
@@ -64,6 +65,7 @@
               const weight = document.createElement("td");
               const endDate = document.createElement("td");
               const imageUrl = document.createElement("td");
+              const button = document.createElement("button");
 
               id.innerHTML = row.id;
               partType.innerHTML = row.partType;
@@ -73,6 +75,7 @@
               weight.innerHTML = row.weight;
               endDate.innerHTML = row.endDate;
               imageUrl.innerHTML = row.imageUrl;
+              button.innerHTML = "Delete";
 
               tr.appendChild(id);
               tr.appendChild(partType);
