@@ -45,8 +45,10 @@
             console.log(errorMsg);
             const tr = document.createElement("tr");
             const td = document.createElement("td");
+            const button = document.createElement("button");
             td.innerHTML = errorMsg;
             tr.appendChild(td);
+            tr.appendChild(button);
             itemContainer.appendChild(tr);
             return;
         }
