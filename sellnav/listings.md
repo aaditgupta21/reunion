@@ -68,6 +68,7 @@
               const endDate = document.createElement("td");
               const imageUrl = document.createElement("td");
               const button = document.createElement("button");
+              button.setAttribute('onclick', 'formSubmit()')
 
               id.innerHTML = row.id;
               partType.innerHTML = row.partType;
@@ -94,6 +95,33 @@
         })
     })
   }
+
+  function formSubmit() {
+        let partType = document.getElementById("partType").value;
+        let description = document.getElementById("description").value;
+        let initialCost = document.getElementById("initialCost").value;
+        let currentCost = initialCost;
+        let endDate = document.getElementById("endDate").value;
+        let weight = document.getElementById("weight").value;
+        let imageUrl = document.getElementById("imageUrl").value;
+
+
+        fetch(
+          `https://f1-backend.aadit.dev/api/item/newItem?partType=${partType}&description=${description}&currentCost=${currentCost}&initialCost=${initialCost}&endDate=${endDate}&imageUrl=${imageUrl}&weight=${weight}`,{method: "DELETE", mode: 'cors',cache: 'no-cache', credentials: 'include', headers: {'Content-Type': "application/json"}}
+        )
+          .then(response => response.text())
+  .then(result => {
+    console.log(result);
+    if (result == `${partType} listed successfully!`) {
+      alert("Part Listed Successfully!");
+      window.location.href = "https://aaditgupta21.github.io/reunion/sellnav/listings";
+    } else {
+      alert("Error");
+    }
+  })
+  .catch(error => console.log('error', error));
+
+    }
 
   listItems();
 </script>
