@@ -118,7 +118,7 @@ ul li::before {
 
        var requestOptions = {
           method: 'POST',
-          headers: myHeaders,
+          headers: {'Content-Type': "application/json"},
           mode: 'cors',
           cache: 'default', 
           credentials: 'include',
@@ -127,7 +127,7 @@ ul li::before {
         };
 
       fetch(
-          `https://f1-backend.aadit.dev/api/race/makeComment}`,{method: "POST", mode: 'cors',cache: 'no-cache', credentials: 'include', headers: {'Content-Type': "application/json"}}
+          `https://f1-backend.aadit.dev/api/race/makeComment}`, requestOptions
         )
           .then(response => response.text())
   .then(result => {
