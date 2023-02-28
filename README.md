@@ -2,7 +2,7 @@
 A formula 1 betting website
 
 Features: 
-- Races throughout history 
+- Races throughout history allowing users to learn about F1 history!
 - Interactive calendar
 - Betting on races
 - Creating notes
