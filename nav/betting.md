@@ -688,7 +688,7 @@ p{
         const data = {betId}
 
         var requestOptions = {
-          method: 'DELETE',
+          method: 'POST',
           headers: myHeaders,
           redirect: 'manual',
           mode: 'cors',
