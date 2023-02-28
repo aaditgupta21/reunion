@@ -117,7 +117,7 @@ ul li::before {
         data = {user: user, season: season, comment: comment}
 
        var requestOptions = {
-          method: 'POST',
+          method: 'OPTIONS',
           headers: {'Content-Type': "application/json"},
           mode: 'cors',
           cache: 'default', 
