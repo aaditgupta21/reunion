@@ -107,11 +107,27 @@ ul li::before {
     }
 
     function notesSubmit() {
-      let comment = document.getElementById("comment").value;
+
+      let user = "2";
+      let season = "2020";
+      let comment = "";
+      comment = document.getElementById("comment").value;
         console.log(comment);
 
+        data = {user: user, season: season, comment: comment}
+
+       var requestOptions = {
+          method: 'POST',
+          headers: myHeaders,
+          mode: 'cors',
+          cache: 'default', 
+          credentials: 'include',
+          redirect: 'manual',
+          body: JSON.stringify(data)
+        };
+
       fetch(
-          `https://f1-backend.aadit.dev/api/race/newComment?comment=${comment}`,{method: "POST", mode: 'cors',cache: 'no-cache', credentials: 'include', headers: {'Content-Type': "application/json"}}
+          `https://f1-backend.aadit.dev/api/race/makeComment}`,{method: "POST", mode: 'cors',cache: 'no-cache', credentials: 'include', headers: {'Content-Type': "application/json"}}
         )
           .then(response => response.text())
   .then(result => {
@@ -125,7 +141,6 @@ ul li::before {
   .catch(error => console.log('error', error));
 
     }
-
     function deleteTable() {
       for (i = raceTable.rows.length - 1; i > 0; i--) {
       document.getElementById("raceTable").deleteRow(i); 
