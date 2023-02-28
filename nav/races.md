@@ -127,7 +127,7 @@ ul li::before {
         };
 
       fetch(
-          `https://f1-backend.aadit.dev/api/race/makeComment}`, requestOptions
+          `https://f1-backend.aadit.dev/api/race/makeComment`, requestOptions
         )
           .then(response => response.text())
   .then(result => {
