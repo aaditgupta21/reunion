@@ -87,6 +87,7 @@
               tr.appendChild(weight);
               tr.appendChild(endDate);
               tr.appendChild(imageUrl);
+              tr.appendChild(button);
 
               itemContainer.appendChild(tr);
             }
