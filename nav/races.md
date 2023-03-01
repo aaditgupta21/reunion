@@ -64,9 +64,13 @@ ul li::before {
     <button type="submit" onclick="deleteTable(id)">Delete Table</button>
 </div>
 
+
+
 <script type="text/javascript">
+
+  let year = -1;
     function formSubmit() {
-        let year = document.getElementById("year").value;
+        year = document.getElementById("year").value;
         console.log(year);
         // data = {year: year}
         // console.log(data);
