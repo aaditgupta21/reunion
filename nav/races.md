@@ -109,7 +109,7 @@ ul li::before {
     function notesSubmit() {
 
       let user = "2";
-      let season = "2022";
+      let season = year;
       let comment = "";
       comment = document.getElementById("comment").value;
         console.log(comment);
