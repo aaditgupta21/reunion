@@ -160,7 +160,7 @@ ul li::before {
         data = {user: user}
 
        var requestOptions = {
-          method: 'DELETE',
+          method: 'POST',
           headers: {'Content-Type': "application/json"},
           mode: 'cors',
           cache: 'default', 
