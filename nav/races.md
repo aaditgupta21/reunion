@@ -63,6 +63,9 @@ ul li::before {
 <div lik style="margin: 0 auto; text-align: center">
     <button type="submit" onclick="deleteTable(id)">Delete Table</button>
 </div>
+<div lik style="margin: 0 auto; text-align: center">
+    <button type="submit" onclick="deleteComments(id)">Delete Comments</button>
+</div>
 
 
 
@@ -150,6 +153,36 @@ ul li::before {
       document.getElementById("raceTable").deleteRow(i); 
       }  
        }
+
+    function deleteComments() {
+
+      let user = "2";
+        data = {user: user}
+
+       var requestOptions = {
+          method: 'DELETE',
+          headers: {'Content-Type': "application/json"},
+          mode: 'cors',
+          cache: 'default', 
+          credentials: 'include',
+          redirect: 'manual',
+          body: JSON.stringify(data)
+        };
+
+      fetch(
+          `https://f1-backend.aadit.dev/api/race/delete`, requestOptions
+        )
+          .then(response => response.text())
+  .then(result => {
+    console.log(result);
+    if (result == "user " + userId + " comments deleted") {
+      alert("Comment Delete Successful!");
+    } else {
+      alert("Error");
+    }
+  })
+  .catch(error => console.log('error', error));
+  }
 
   </script>
 
