@@ -175,7 +175,7 @@ ul li::before {
           .then(response => response.text())
   .then(result => {
     console.log(result);
-    if (result == "user " + userId + " comments deleted") {
+    if (result == "user " + user + " comments deleted") {
       alert("Comment Delete Successful!");
     } else {
       alert("Error");
