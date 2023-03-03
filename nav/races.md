@@ -64,6 +64,9 @@ ul li::before {
     <button type="submit" onclick="deleteTable(id)">Delete Table</button>
 </div>
 <div lik style="margin: 0 auto; text-align: center">
+    <button type="submit" onclick="listComments()">List Comments</button>
+</div>
+<div lik style="margin: 0 auto; text-align: center">
     <button type="submit" onclick="deleteComments(id)">Delete Comments</button>
 </div>
 
