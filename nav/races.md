@@ -259,6 +259,8 @@ ul li::before {
     })
   }
 
+  </script>
+
 <html>
   <head>
     <meta charset="utf-8" />
