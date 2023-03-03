@@ -198,7 +198,66 @@ ul li::before {
       </tr>
     </thead>
     <tbody></tbody>
-  </table>
+</table>
+
+<script>
+  const commentContainer = document.getElementById("comments");
+//   const options = {
+//       method: 'GET', // *GET, POST, PUT, DELETE, etc.
+//       mode: 'no-cors', // no-cors, *cors, same-origin
+//       cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
+//       credentials: 'omit', // include, *same-origin, omit
+//       headers: {
+//       'Content-Type': 'application/json'
+//       // 'Content-Type': 'application/x-www-form-urlencoded',
+//       },
+//   };
+  
+    function listComments() {
+    // fetch the API
+    fetch("https://f1-backend.aadit.dev/api/race/getCommentsByUser/2", {method: "GET", mode: 'cors',cache: 'no-cache', credentials: 'include', headers: {'Content-Type': "application/json"}})
+      // response is a RESTful "promise" on any successful fetch
+      .then(response => {
+        // check for response errors
+        if (response.status !== 200) {
+            const errorMsg = 'Database response error: ' + response.status;
+            console.log(errorMsg);
+            const tr = document.createElement("tr");
+            const td = document.createElement("td");
+            const button = document.createElement("button");
+            td.innerHTML = errorMsg;
+            tr.appendChild(td);
+            tr.appendChild(button);
+            commentContainer.appendChild(tr);
+            return;
+        }
+        // valid response will have json data
+        response.json()
+        .then(data => {
+            for (const row of data) {
+
+              const tr = document.createElement("tr");
+
+              const user = document.createElement("td");
+              const season = document.createElement("td");
+              const comment = document.createElement("td");
+              button.setAttribute('onclick', 'NotesSubmit()')
+
+              user.innerHTML = row.user;
+              season.innerHTML = row.season;
+              comment.innerHTML = row.comment;
+              button.innerHTML = "Delete";
+
+              tr.appendChild(user);
+              tr.appendChild(season);
+              tr.appendChild(comment);
+              tr.appendChild(button);
+
+              commentContainer.appendChild(tr);
+            }
+        })
+    })
+  }
 
 <html>
   <head>
