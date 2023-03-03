@@ -230,7 +230,6 @@ ul li::before {
             const button = document.createElement("button");
             td.innerHTML = errorMsg;
             tr.appendChild(td);
-            tr.appendChild(button);
             commentContainer.appendChild(tr);
             return;
         }
@@ -244,17 +243,14 @@ ul li::before {
               const user = document.createElement("td");
               const season = document.createElement("td");
               const comment = document.createElement("td");
-              button.setAttribute('onclick', 'NotesSubmit()')
 
               user.innerHTML = row.user;
               season.innerHTML = row.season;
               comment.innerHTML = row.comment;
-              button.innerHTML = "Delete";
 
               tr.appendChild(user);
               tr.appendChild(season);
               tr.appendChild(comment);
-              tr.appendChild(button);
 
               commentContainer.appendChild(tr);
             }
