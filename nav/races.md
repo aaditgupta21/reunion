@@ -217,6 +217,10 @@ ul li::before {
 //   };
   
     function listComments() {
+
+      for (i = comments.rows.length - 1; i > 0; i--) {
+      document.getElementById("comments").deleteRow(i); 
+      }
     // fetch the API
     fetch("https://f1-backend.aadit.dev/api/race/getCommentsByUser/2", {method: "GET", mode: 'cors',cache: 'no-cache', credentials: 'include', headers: {'Content-Type': "application/json"}})
       // response is a RESTful "promise" on any successful fetch
