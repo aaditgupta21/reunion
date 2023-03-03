@@ -188,6 +188,18 @@ ul li::before {
 
   ---------------------------
 
+
+<table id = "comments">
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Season</th>
+        <th>Comment</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
 <html>
   <head>
     <meta charset="utf-8" />
