@@ -46,6 +46,10 @@ ul li::before {
   color: black;">
     <button type="submit" onclick="formSubmit()">Get Info</button>
 </div>
+<!-- button to delete table -->
+<div lik style="margin: 0 auto; text-align: center">
+    <button type="submit" onclick="deleteTable(id)">Delete Table</button>
+</div>
 <div style="margin: 0 auto; text-align: center">
     <input type="text" id="comment" name="comment" placeholder="Your Opinion"
      style="width: 50%;
@@ -54,15 +58,11 @@ ul li::before {
   box-sizing: border-box;
   border: 2px solid #CD2A2A;
   border-radius: 40px;
-  color: gray;">
+  color: black;">
     <button type="Save Notes" onclick="notesSubmit()">Submit</button>
     <br>
 </div>
 
-<!-- button to delete table -->
-<div lik style="margin: 0 auto; text-align: center">
-    <button type="submit" onclick="deleteTable(id)">Delete Table</button>
-</div>
 <div lik style="margin: 0 auto; text-align: center">
     <button type="submit" onclick="listComments()">List Comments</button>
 </div>
